@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Void's Arcana - New Game</title>
+    <link rel="stylesheet" href="new-game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="newgame-container">
+        <div id="newgame-background"></div>
+        
+        <div id="newgame-header">
+            <h1>Begin Your Journey</h1>
+            <p>Create your character to start your adventure in Ashen Hearth</p>
+        </div>
+        
+        <div id="character-creation">
+            <div class="creation-section">
+                <h2>Choose Your Sex</h2>
+                <div class="sex-options">
+                    <div class="sex-option" data-sex="male">
+                        <div class="sex-icon">
+                            <i class="fas fa-mars"></i>
+                        </div>
+                        <span>Male</span>
+                    </div>
+                    <div class="sex-option" data-sex="female">
+                        <div class="sex-icon">
+                            <i class="fas fa-venus"></i>
+                        </div>
+                        <span>Female</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="creation-section">
+                <h2>Date of Birth</h2>
+                <div class="dob-input">
+                    <input type="date" id="dob" min="1900-01-01" max="2023-12-31">
+                    <div class="input-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Your actual DOB will affect your gameplay experience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="character-summary">
+                <h3>Character Summary</h3>
+                <div id="summary-content">
+                    <p><strong>Sex:</strong> <span id="summary-sex">Not selected</span></p>
+                    <p><strong>Date of Birth:</strong> <span id="summary-dob">Not selected</span></p>
+                    <p><strong>Age:</strong> <span id="summary-age">-</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="newgame-actions">
+            <button id="start-game-btn" disabled>
+                <i class="fas fa-play"></i>
+                Begin Adventure
+            </button>
+            <button id="back-to-guest">
+                <i class="fas fa-arrow-left"></i>
+                Back
+            </button>
+        </div>
+    </div>
+
+    <script src="new-game.js"></script>
+</body>
+</html>

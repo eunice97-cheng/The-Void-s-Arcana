@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice System</title>
+    <link rel="stylesheet" href="choice.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="choice-overlay">
+        <div id="choice-background"></div>
+
+        <div id="choice-content">
+            <!-- Hidden metadata -->
+            <div id="choice-meta" class="choice-meta" aria-hidden="true">
+                <span id="choice-id"></span>
+                <span id="choice-title"></span>
+            </div>
+
+            <!-- Main Content Area -->
+            <div id="choice-main">
+                <!-- NPC Section (Left) -->
+                <div id="npc-section">
+                    <div id="npc-dialogue-box">
+                        <div id="npc-name">NPC Name</div>
+                        <div id="npc-text">NPC dialogue text will appear here.</div>
+                    </div>
+                    <div id="npc-portrait-container">
+                        <!-- NPC portrait will be dynamically added if available -->
+                    </div>
+                </div>
+
+                <!-- Player Choices Section (Right) -->
+                <div id="choices-section">
+                    <div id="choices-container">
+                        <!-- Choice buttons will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Choice Controls -->
+            <div id="choice-controls">
+                <button id="choice-back" class="choice-btn back-btn">Back</button>
+            </div>
+        </div>
+
+        <!-- Audio Toggle -->
+        <button class="icon-btn" id="audio-toggle-choice" aria-label="Toggle audio">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <script src="choice.js"></script>
+    <script src="conversation.js"></script>
+    <script src="narrative.js"></script>
+    <script src="scene-manager.js"></script>
+    <script src="main.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sceneParam = urlParams.get('scene');
+            
+            gameScenes.forEach(scene => sceneManager.addScene(scene));
+            
+            if (sceneParam && sceneManager.currentScene?.title !== sceneParam) {
+                sceneManager.loadScene(sceneParam);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+/* Window Base Styles */
+.window {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 450px;
+    background: var(--ui-bg);
+    border: 1px solid var(--ui-border);
+    border-radius: 15px;
+    padding: 0;
+    z-index: 5;
+    display: none;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.window.active {
+    display: flex;
+    flex-direction: column;
+    /* animation: fadeIn 0.3s ease; */
+}
+
+.window-header {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--ui-border);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.window-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.close-window {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.close-window:hover {
+    background: var(--ui-highlight);
+}
+
+.window-content {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.window-content p {
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #ccc;
+}
+
+.window-content ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.window-content li {
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+/* Adventure Card Window */
+#adventure-card .window-content p {
+    margin-bottom: 10px;
+    padding: 5px 0;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+}
+
+/* Inventory Window */
+#inventory .window-content ul {
+    margin-bottom: 20px;
+}
+
+#inventory .window-content li {
+    padding: 3px 0;
+}
+
+/* Quests Window */
+#quests .window-content p {
+    color: var(--exp-color);
+    font-weight: 600;
+}
+
+#quests .window-content li {
+    font-style: italic;
+}
+
+/* Status Window */
+#status .window-content ul {
+    margin-bottom: 20px;
+}
+
+#status .window-content li {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+}
+
+/* Map Window */
+#map-placeholder {
+    text-align: center;
+}
+
+#map-placeholder p {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--exp-color);
+}
+
+.mini-map {
+    width: 100%;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.map-tile {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-tile.forest {
+    background: #2d5a2d;
+}
+
+.map-tile.mountain {
+    background: #666;
+}
+
+.map-tile.village {
+    background: #8b7355;
+}
+
+.map-tile.water {
+    background: #4d79ff;
+}
+
+.map-tile.road {
+    background: #8b7355;
+}
+
+.player-position {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--exp-color);
+    border-radius: 50%;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+    box-shadow: 0 0 10px var(--exp-color);
+    z-index: 10;
+}
+
+/* Achievements Window */
+#achievements .window-content p {
+    color: var(--exp-color);
+    font-weight: 600;
+}
+
+#achievements .window-content ul {
+    margin-bottom: 20px;
+}
+
+#achievements .window-content li {
+    padding: 3px 0;
+    position: relative;
+}
+
+/* Scrollbar Styling */
+.window-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.window-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.window-content::-webkit-scrollbar-thumb {
+    background: var(--ui-highlight);
+    border-radius: 3px;
+}
+
+.window-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.separator {
+    border-top: 1px solid var(--ui-border);
+    margin: 15px 0;
+    border-color: aqua;
+}
+
+/* Window Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}

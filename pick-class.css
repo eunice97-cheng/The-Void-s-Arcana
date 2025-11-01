@@ -1,0 +1,188 @@
+/* Pick Class Layout - Based on Narrative */
+#pick-class-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#pick-class-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./Images/Ritual.png') center/cover no-repeat;
+    z-index: 1;
+}
+
+#pick-class-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1000px;
+    background: rgba(30, 30, 46, 0.85);
+    border: 2px solid rgba(138, 43, 226, 0.5);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+    text-align: center;
+}
+
+#class-narrative {
+    margin-bottom: 30px;
+}
+
+#class-narrative p {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #e6e6fa;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+.blood-reveal {
+    color: #9538d3 !important;
+    font-weight: bold;
+}
+
+.choose-any {
+    font-size: 1.1rem !important;
+    font-style: italic;
+}
+
+/* Class Cards Grid */
+#class-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.class-card {
+    background: rgba(70, 70, 90, 0.7);
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.class-card:hover {
+    border-color: rgba(138, 43, 226, 0.8);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+}
+
+.class-card.recommended {
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.class-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: #e6e6fa;
+    margin-bottom: 10px;
+}
+
+.class-hint {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 0.9rem;
+    color: #9538d3;
+    font-style: italic;
+}
+
+/* Popup Styles */
+#class-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-hidden {
+    display: none !important;
+}
+
+.popup-content {
+    background: rgba(30, 30, 46, 0.95);
+    border: 2px solid rgba(138, 43, 226, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.5);
+}
+
+#popup-class-name {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #e6e6fa;
+    margin-bottom: 20px;
+}
+
+#popup-class-desc {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e6e6fa;
+    margin-bottom: 30px;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.popup-buttons button {
+    background: rgba(138, 43, 226, 0.6);
+    border: 1px solid rgba(138, 43, 226, 0.8);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.popup-buttons button:hover {
+    background: rgba(138, 43, 226, 0.8);
+    transform: translateY(-2px);
+}
+
+.blood-recommended {
+    border-color: #ff0000 !important;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6) !important;
+}
+
+.class-hint.blood-recommended {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.class-hint.recommended {
+    color: #ffa500;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation System Design</title>
+    <link rel="stylesheet" href="conversation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<script>
+    // Debug what happens when conversation loads
+    setTimeout(() => {
+        console.log('Conversation page fully loaded');
+        const continueBtn = document.getElementById('conversation-continue');
+        if (continueBtn) {
+            console.log('Continue button found, adding click listener');
+            continueBtn.addEventListener('click', function() {
+                console.log('Continue button CLICKED manually');
+            });
+        }
+    }, 1000);
+</script>
+
+<body>
+    <div id="conversation-overlay">
+        <div id="conversation-background"></div>
+
+        <div id="conversation-content">
+            <!-- Hidden conversation metadata -->
+            <div id="conversation-meta" class="conversation-meta" aria-hidden="true">
+                <span id="conversation-id"></span>
+                <span id="conversation-title"></span>
+                <span id="conversation-subtitle"></span>
+                <span id="conversation-step"></span>
+            </div>
+
+            <!-- Main Content Area -->
+            <div id="conversation-main">
+                <!-- NPC Section (Left) -->
+                <div id="npc-section">
+                    <div id="npc-dialogue-box">
+                        <div id="npc-name">NPC Name</div>
+                        <div id="npc-text">NPC dialogue text will appear here.</div>
+                    </div>
+                    <div id="npc-portrait-container">
+                        <!-- NPC portrait will be dynamically added if available -->
+                    </div>
+                </div>
+
+                <!-- Player Section (Right) -->
+                <div id="player-section">
+                    <div id="player-dialogue-box">
+                        <div id="player-text">Your response will appear here.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversation Controls - NOW TRULY SPANS FULL WIDTH -->
+            <div id="conversation-controls">
+                <button id="conversation-back" class="conversation-btn back-btn">Back</button>
+                <button id="conversation-continue" class="conversation-btn">Continue</button>
+            </div>
+        </div>
+
+        <!-- Audio Toggle -->
+        <button class="icon-btn" id="audio-toggle-conv" aria-label="Toggle audio">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <script src="conversation.js"></script>
+    <script src="narrative.js"></script>
+    <script src="scene-manager.js"></script>
+    <script src="choice.js"></script>
+    <script src="main.js"></script>
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const sceneParam = urlParams.get('scene');
+        
+        gameScenes.forEach(scene => sceneManager.addScene(scene));
+        
+        // ONLY load the scene if we're not already on it
+        if (sceneParam && sceneManager.currentScene?.title !== sceneParam) {
+            sceneManager.loadScene(sceneParam);
+        }
+    });
+</script>
+</body>
+
+</html>

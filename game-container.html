@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Void's Arcana</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #game-frame {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe id="game-frame" src="narrative.html?scene=Scene001"></iframe>
+
+    <script>
+    const gameFrame = document.getElementById('game-frame');
+    let lastLoadTime = 0;
+    
+    window.addEventListener('message', function(event) {
+        // Prevent loading scenes too quickly (min 500ms between loads)
+        const now = Date.now();
+        if (now - lastLoadTime < 500) {
+            console.log('Too fast, ignoring load request');
+            return;
+        }
+        lastLoadTime = now;
+        
+        if (event.data.type === 'loadScene') {
+            const newSrc = `${event.data.sceneType}.html?scene=${event.data.sceneTitle}`;
+            gameFrame.src = newSrc;
+        }
+        
+        if (event.data.type === 'gameComplete') {
+            window.location.href = 'index.html';
+        }
+    });
+</script>
+
+</body>
+
+</html>

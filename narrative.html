@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Void's Arcana - Story</title>
+
+    <link rel="stylesheet" href="narrative.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="narrative-container">
+        <div id="narrative-background"></div>
+
+        <div id="narrative-content">
+            <div id="narrative-subtitle"></div>
+            <h2 id="narrative-title"></h2>
+            <div id="narrative-speaker"></div>
+            <div id="narrative-text"></div>
+
+            <div id="narrative-controls">
+                <button class="narrative-btn" id="narrative-back">Back</button>
+                <button class="narrative-btn" id="narrative-continue">Continue</button>
+            </div>
+        </div>
+
+        <div id="page-indicators"></div>
+    </div>
+
+    <script src="scene-manager.js"></script>
+    <script src="conversation.js"></script>
+    <script src="narrative.js"></script>
+    <script src="choice.js"></script>
+    <script src="main.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sceneParam = urlParams.get('scene');
+
+            console.log('URL scene param:', sceneParam); // Should be 'Act1'
+            console.log('Current scene before load:', sceneManager.currentScene?.title);
+
+            gameScenes.forEach(scene => sceneManager.addScene(scene));
+
+            if (sceneParam) {
+                console.log('Loading scene from URL:', sceneParam);
+                sceneManager.loadScene(sceneParam);
+            } else {
+                console.log('Loading default Scene001');
+                sceneManager.loadScene('Scene001');
+            }
+        });
+    </script>
+    <script>
+        console.log('Scripts loaded - checking sceneManager:', typeof sceneManager);
+        console.log('NarrativeMode:', typeof NarrativeMode);
+        sceneManager.registerMode('choice', ChoiceMode);
+        console.log('gameScenes:', typeof gameScenes);
+    </script>
+</body>
+
+</html>

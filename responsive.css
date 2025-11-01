@@ -1,0 +1,442 @@
+/* Medium Screen Layout - 1180px and below */
+@media (max-width: 1180px) {
+    #top-left-ui {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #avatar-container {
+        width: 94px;
+        height: 94px;
+        flex-shrink: 0;
+    }
+
+    #status-bars {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        height: 94px;
+        padding: 8px 12px;
+        min-width: auto;
+    }
+
+    .status-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 55px;
+        gap: 4px;
+    }
+
+    .status-label {
+        font-size: 10px;
+        width: auto;
+    }
+
+    .status-bar:nth-of-type(3) .status-label {
+        font-size: 0;
+    }
+
+    .status-bar:nth-of-type(3) .status-label::before {
+        content: "STA";
+        font-size: 10px;
+    }
+
+    .bar-container {
+        width: 55px;
+        height: 8px;
+    }
+
+    .bar-value {
+        font-size: 9px;
+        width: auto;
+    }
+
+    .currency-display {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: 60px;
+    }
+
+    #top-right-ui {
+        gap: 0;
+    }
+
+    .icon-btn {
+        transform: scale(0.7);
+        transform-origin: center;
+        margin: -6px;
+    }
+
+    #left-side-ui {
+        gap: 2px;
+    }
+
+    .window-toggle {
+        transform: scale(0.7);
+        transform-origin: center;
+        margin: -8px;
+    }
+
+    #game-info-btn {
+        transform: scale(0.7);
+        transform-origin: center;
+        margin: -6px;
+    }
+}
+
+/* 960px breakpoint */
+@media (max-width: 960px) {
+    #exp-bar-container {
+        width: 50%;
+        padding: 6px 10px;
+    }
+
+    #exp-info {
+        font-size: 11px;
+        margin-bottom: 3px;
+    }
+
+    #exp-bar {
+        height: 10px;
+    }
+
+    #exp-progress {
+        height: 100%;
+    }
+
+    #game-info-btn {
+        transform: scale(0.8);
+        margin: -4px;
+    }
+
+    #time-display {
+        font-size: 11px;
+        padding: 6px 8px;
+        min-width: 110px;
+    }
+
+    .window {
+        width: 320px;
+        height: 420px;
+    }
+
+    .window-header {
+        padding: 15px 20px;
+    }
+
+    .window-content {
+        padding: 20px;
+    }
+}
+
+/* 768px Responsive Breakpoint */
+@media (max-width: 768px) {
+    #top-left-ui {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #avatar-container {
+        width: 75px;
+        height: 75px;
+        flex-shrink: 0;
+    }
+
+    #status-bars {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        height: 75px;
+        padding: 8px 12px;
+        min-width: auto;
+    }
+
+    .status-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60px;
+        gap: 4px;
+    }
+
+    .status-label {
+        font-size: 9px;
+        width: auto;
+    }
+
+    .status-bar:nth-of-type(3) .status-label {
+        font-size: 0;
+    }
+
+    .status-bar:nth-of-type(3) .status-label::before {
+        content: "STA";
+        font-size: 8px;
+    }
+
+    .bar-container {
+        width: 60px;
+        height: 8px;
+    }
+
+    .bar-value {
+        font-size: 8px;
+        width: auto;
+    }
+
+    .currency-display {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: 65px;
+    }
+
+    .currency-item {
+        font-size: 8px;
+        gap: 3px;
+        font-weight: 600;
+    }
+
+    .currency-item i {
+        font-size: 9px;
+    }
+
+    #top-right-ui {
+        gap: 2px;
+    }
+
+    .icon-btn {
+        transform: scale(0.7);
+        margin: -4px;
+    }
+
+    #left-side-ui {
+        gap: 2px;
+    }
+
+    .window-toggle {
+        transform: scale(0.7);
+        margin: -6px;
+    }
+
+    #exp-bar-container {
+        width: 50%;
+        padding: 6px 10px;
+    }
+
+    #exp-info {
+        font-size: 10px;
+        margin-bottom: 3px;
+    }
+
+    #exp-bar {
+        height: 8px;
+    }
+
+    #game-info-btn {
+        transform: scale(0.8);
+        margin: -4px;
+    }
+
+    #time-display {
+        font-size: 10px;
+        padding: 6px 8px;
+        min-width: 100px;
+    }
+
+    .window {
+        width: 300px;
+        height: 400px;
+    }
+
+    .window-header {
+        padding: 12px 18px;
+    }
+
+    .window-header h2 {
+        font-size: 16px;
+    }
+
+    .window-content {
+        padding: 18px;
+        font-size: 13px;
+    }
+}
+
+/* 650px and below - Mobile Small */
+@media (max-width: 650px) {
+
+    /* Top Right UI - Switch to vertical on right side */
+    #top-right-ui {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .icon-btn {
+        transform: scale(0.7);
+        margin: -6px;
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Time Display - Simplified and moved to bottom left */
+    #time-display {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: auto;
+        transform: none;
+        margin: 0;
+        background: var(--ui-bg);
+        border: 1px solid var(--ui-border);
+        border-radius: 6px;
+        padding: 4px 8px;
+        font-size: 10px;
+        min-width: 70px;
+        text-align: center;
+        z-index: 10;
+        width: fit-content;
+    }
+
+    #current-date {
+        font-size: 9px;
+        margin-bottom: 1px;
+    }
+
+    #current-time {
+        font-size: 9px;
+        font-family: 'Courier New', monospace;
+    }
+
+    /* Game Info Button - Same size as others */
+    #game-info-btn {
+        transform: scale(0.7);
+        margin: -6px;
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Windows adjustments for mobile */
+    .window {
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;
+    }
+
+    .window-header {
+        padding: 10px 15px;
+    }
+
+    .window-header h2 {
+        font-size: 15px;
+    }
+
+    .window-content {
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    #exp-bar-container {
+        width: 50%;
+        bottom: 5px;
+        height: auto;
+        padding: 6px 10px;
+    }
+
+    /* Left side UI adjustments */
+    #left-side-ui {
+        left: 5px;
+        gap: 1px;
+    }
+
+    .window-toggle {
+        transform: scale(0.7);
+        margin: -6px;
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Top left UI compact */
+    #top-left-ui {
+        top: 5px;
+        left: 5px;
+        gap: 8px;
+    }
+
+    #avatar-container {
+        width: 75px;
+        height: 75px;
+    }
+
+    #status-bars {
+        height: 75px;
+        padding: 8px 12px;
+        gap: 10px;
+    }
+
+    .status-bar {
+        width: 60px;
+    }
+
+    .bar-container {
+        width: 60px;
+        height: 8px;
+    }
+
+    .status-label {
+        font-size: 9px;
+    }
+
+    .bar-value {
+        font-size: 8px;
+    }
+
+    .currency-display {
+        width: 65px;
+    }
+
+    .currency-item {
+        font-size: 8px;
+    }
+
+    .currency-item i {
+        font-size: 9px;
+    }
+
+    /* Mini-map adjustments */
+    .mini-map {
+        height: 150px;
+    }
+
+    .player-position {
+        width: 10px;
+        height: 10px;
+    }
+
+    #toggle-ui {
+        transform: scale(0.7);
+        margin: -6px;
+        width: 50px;
+        height: 50px;
+        top: 5px;
+        left: 5px;
+    }
+}
+
