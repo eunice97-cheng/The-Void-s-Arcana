@@ -35,8 +35,14 @@
       const result = await saveSlotsManager.downloadFromCloud();
       if (result.success) {
         const lu = saveSlotsManager.getLastUsed();
-        if (lu) saveSlotsManager.loadFromSlot(lu);
-        goto('/game');
+        const slot = lu ? saveSlotsManager.getSlot(lu) : null;
+        if (slot && slot.payload) {
+          saveSlotsManager.loadFromSlot(lu);
+          goto('/game');
+        } else {
+          // Cloud exists but all slots are empty — create a character
+          goto('/guest');
+        }
       } else {
         // New account with no save — create a character
         goto('/guest');

@@ -23,15 +23,35 @@
 		animateTextOnPage(1);
 		setTimeout(() => (showSpinner = false), 900);
 
+		let handleInteraction;
+
 		if (audio) {
 			audio.volume = 1.0 * bgmMultiplier;
-			audio.play().catch(() => {});
+
+			const playAudio = () => {
+				audio.play().catch(() => {});
+			};
+
+			playAudio();
+
+			// Fallback: browsers block autoplay on HTTPS until user interaction
+			handleInteraction = () => {
+				playAudio();
+				document.removeEventListener('click', handleInteraction);
+				document.removeEventListener('keydown', handleInteraction);
+			};
+			document.addEventListener('click', handleInteraction);
+			document.addEventListener('keydown', handleInteraction);
 		}
 
 		return () => {
 			if (audio) {
 				audio.pause();
 				audio.currentTime = 0;
+			}
+			if (handleInteraction) {
+				document.removeEventListener('click', handleInteraction);
+				document.removeEventListener('keydown', handleInteraction);
 			}
 		};
 	});
