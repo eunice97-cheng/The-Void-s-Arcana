@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Import Slot 1 - Eunice</title>
+  <style>body{font-family:system-ui,Segoe UI,Roboto,Arial;display:flex;align-items:center;justify-content:center;height:100vh;background:#0b0b10;color:#e6e6e6}#box{max-width:780px;padding:20px;border-radius:8px;background:rgba(0,0,0,0.6);box-shadow:0 6px 20px rgba(0,0,0,0.6);}button{margin-top:12px;padding:8px 12px;border-radius:6px;border:0;background:#6b46c1;color:white;cursor:pointer}</style>
+</head>
+<body>
+  <div id="box">
+    <h2>Importing Eunice into Slot 1</h2>
+    <div id="status">Working...</div>
+    <div style="margin-top:12px"><button id="open-game" style="display:none">Open Game</button></div>
+    <p style="font-size:12px;margin-top:14px;opacity:0.8">This page will only modify localStorage on this origin. No external data is sent.</p>
+  </div>
+
+  <script>
+    /* eslint-disable no-console */
+    async function run() {
+      const STATUS = document.getElementById('status');
+      try {
+        const KEY = 'game_save_slots';
+        // backup
+        const nowTs = Date.now();
+        try { localStorage.setItem(`${KEY}_backup_${nowTs}`, localStorage.getItem(KEY) || 'null'); } catch (e) {}
+        STATUS.textContent = 'Backup saved.';
+
+        const res = await fetch('/eunice.slot1.export.json');
+        if (!res.ok) throw new Error('Failed to fetch export file: ' + res.status);
+        const f = await res.json();
+        if (!f || !f.slot) throw new Error('Export missing slot');
+
+        // load or initialize slots container
+        let data = null;
+        try { data = JSON.parse(localStorage.getItem(KEY)); } catch (e) { data = null; }
+        if (!data || !Array.isArray(data.slots)) {
+          data = { version: 1, lastUsed: null, slots: [] };
+          for (let i = 1; i <= 6; i++) data.slots.push({ id: i, name: 'Slot ' + i, locked: i > 2, mode: (i <= 2) ? 'free' : 'locked', ts: null, meta: null, payload: null });
+        }
+
+        while (data.slots.length < f.slot.id) data.slots.push({ id: data.slots.length+1, name: 'Slot ' + (data.slots.length+1), locked: true, mode: 'locked', ts: null, meta: null, payload: null });
+
+        // Apply migration to the imported slot data
+        try {
+          // Simple migration for personality traits
+          const slotData = JSON.parse(f.slot.payload);
+          if (slotData.character && slotData.character.personalityTraits && !slotData.personality) {
+            slotData.personality = slotData.character.personalityTraits;
+            delete slotData.character.personalityTraits;
+            slotData.version = '1.0.7'; // Update version
+            f.slot.payload = JSON.stringify(slotData);
+            console.log('Migrated personality traits during import');
+          }
+        } catch (migrateError) {
+          console.warn('Migration failed during import:', migrateError);
+        }
+
+        // Find the slot index (f.slot.id is 1-based, array is 0-based)
+        const idx = data.slots.findIndex(s => s.id === f.slot.id);
+        if (idx === -1) {
+          throw new Error('Could not find slot with id: ' + f.slot.id);
+        }
+
+        data.slots[idx] = f.slot;
+        data.lastUsed = f.slot.id;
+        localStorage.setItem(KEY, JSON.stringify(data));
+
+        STATUS.textContent = 'Import complete: Slot ' + f.slot.id + ' updated. Backup key: ' + `${KEY}_backup_${nowTs}`;
+        const btn = document.getElementById('open-game');
+        btn.style.display = 'inline-block';
+        btn.onclick = () => { window.location.href = '/game'; };
+      } catch (err) {
+        console.error(err);
+        STATUS.textContent = 'Error: ' + (err && err.message ? err.message : String(err));
+        const btn = document.getElementById('open-game');
+        btn.style.display = 'inline-block';
+        btn.textContent = 'Open Game (manual)';
+        btn.onclick = () => { window.location.href = '/game'; };
+      }
+    }
+    document.addEventListener('DOMContentLoaded', run);
+  </script>
+</body>
+</html>

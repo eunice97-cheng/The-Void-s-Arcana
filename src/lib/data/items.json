@@ -1,0 +1,2012 @@
+{
+	"1110001": {
+		"id": 1110001,
+		"name": "Short Sword",
+		"description": "A basic one-handed sword, perfect for new warriors.",
+		"price": 80,
+		"sellValue": 40,
+		"icon": "/Images/shortsword.png",
+		"category": "Weapon",
+		"weaponClass": "Sword",
+		"weaponType": "One-Handed",
+		"damage": 8,
+		"attackSpeed": {
+			"single": 1.1,
+			"shield": 1,
+			"base": 1.02
+		},
+		"requirements": {
+			"level": 1,
+			"class": "Warrior",
+			"stats": {
+				"STR": 10
+			}
+		},
+		"rank": "E"
+	},
+	"1110002": {
+		"id": 1110002,
+		"name": "Broadsword",
+		"description": "A sturdy one-handed sword with increased damage.",
+		"price": 400,
+		"sellValue": 200,
+		"icon": "/Images/broadsword.png",
+		"category": "Weapon",
+		"weaponClass": "Sword",
+		"weaponType": "One-Handed",
+		"damage": 20,
+		"attackSpeed": {
+			"single": 1.05,
+			"shield": 1,
+			"base": 1.015
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Warrior",
+			"stats": {
+				"STR": 24
+			}
+		},
+		"rank": "D"
+	},
+	"1110003": {
+		"id": 1110003,
+		"name": "Rapier",
+		"description": "An elegant sword favoring speed over brute force.",
+		"price": 900,
+		"sellValue": 450,
+		"icon": "/Images/rapier.png",
+		"category": "Weapon",
+		"weaponClass": "Sword",
+		"weaponType": "One-Handed",
+		"damage": 26,
+		"attackSpeed": {
+			"single": 1.1,
+			"shield": 1.05,
+			"base": 1.08
+		},
+		"requirements": {
+			"level": 21,
+			"class": "Warrior",
+			"stats": {
+				"STR": 52,
+				"DEX": 36
+			}
+		},
+		"rank": "D"
+	},
+	"1113001": {
+		"id": 1113001,
+		"name": "Long Sword",
+		"description": "A two-handed sword offering balanced damage and reach.",
+		"price": 160,
+		"sellValue": 80,
+		"icon": "/Images/longsword.png",
+		"category": "Weapon",
+		"weaponClass": "Sword",
+		"weaponType": "Two-Handed",
+		"damage": 15,
+		"attackSpeed": {
+			"base": 0.9
+		},
+		"requirements": {
+			"level": 1,
+			"class": "Warrior",
+			"stats": {
+				"STR": 18
+			}
+		},
+		"rank": "E"
+	},
+	"1113002": {
+		"id": 1113002,
+		"name": "Claymore",
+		"description": "A massive two-handed sword dealing devastating damage.",
+		"price": 840,
+		"sellValue": 420,
+		"icon": "/Images/claymore.png",
+		"category": "Weapon",
+		"weaponClass": "Sword",
+		"weaponType": "Two-Handed",
+		"damage": 28,
+		"attackSpeed": {
+			"base": 0.88
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Warrior",
+			"stats": {
+				"STR": 36
+			}
+		},
+		"rank": "D"
+	},
+	"1113003": {
+		"id": 1113003,
+		"name": "Katana",
+		"description": "A masterfully crafted two-handed blade with exceptional speed.",
+		"price": 1600,
+		"sellValue": 800,
+		"icon": "/Images/katana.png",
+		"category": "Weapon",
+		"weaponClass": "Sword",
+		"weaponType": "Two-Handed",
+		"damage": 32,
+		"attackSpeed": {
+			"base": 1.15
+		},
+		"requirements": {
+			"level": 21,
+			"class": "Warrior",
+			"stats": {
+				"STR": 66,
+				"DEX": 24
+			}
+		},
+		"rank": "D"
+	},
+	"1124001": {
+		"id": 1124001,
+		"name": "Dirk",
+		"description": "A small, versatile blade that can be used with a shield or dual-wielded.",
+		"price": 60,
+		"sellValue": 35,
+		"icon": "/Images/dirk.png",
+		"category": "Weapon",
+		"weaponClass": "Daggers",
+		"weaponType": "One-Handed",
+		"damage": 5,
+		"attackSpeed": {
+			"single": 1.25,
+			"dual": 1.05,
+			"base": 1.25
+		},
+		"requirements": {
+			"level": 1,
+			"class": ["Rogue", "Warrior", "Tinkerer"],
+			"stats": {
+				"STR": 2,
+				"DEX": 8
+			}
+		},
+		"rank": "E"
+	},
+	"1124002": {
+		"id": 1124002,
+		"name": "Dagger",
+		"description": "A balanced dagger perfect for swift strikes and stealth.",
+		"price": 300,
+		"sellValue": 150,
+		"icon": "/Images/dagger.png",
+		"category": "Weapon",
+		"weaponClass": "Daggers",
+		"weaponType": "One-Handed",
+		"damage": 11,
+		"attackSpeed": {
+			"single": 1.3,
+			"dual": 1.05,
+			"base": 1.25
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Rogue", "Warrior", "Tinkerer"],
+			"stats": {
+				"STR": 4,
+				"DEX": 22
+			}
+		},
+		"rank": "D"
+	},
+	"1124003": {
+		"id": 1124003,
+		"name": "Stiletto",
+		"description": "A precision blade designed for critical strikes.",
+		"price": 620,
+		"sellValue": 310,
+		"icon": "/Images/stiletto.png",
+		"category": "Weapon",
+		"weaponClass": "Daggers",
+		"weaponType": "One-Handed",
+		"damage": 18,
+		"attackSpeed": {
+			"single": 1.25,
+			"dual": 0.9,
+			"base": 1.25
+		},
+		"requirements": {
+			"level": 21,
+			"class": ["Rogue", "Warrior", "Tinkerer"],
+			"stats": {
+				"STR": 10,
+				"DEX": 68
+			}
+		},
+		"rank": "D"
+	},
+	"1133001": {
+		"id": 1133001,
+		"name": "Executioner's Axe",
+		"description": "A fearsome two-handed axe that strikes terror into enemies.",
+		"price": 910,
+		"sellValue": 455,
+		"icon": "/Images/executioneraxe.png",
+		"category": "Weapon",
+		"weaponClass": "Axes",
+		"weaponType": "Two-Handed",
+		"damage": 34,
+		"attackSpeed": {
+			"base": 0.85
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Warrior",
+			"stats": {
+				"STR": 42
+			}
+		},
+		"rank": "D"
+	},
+	"1133002": {
+		"id": 1133002,
+		"name": "Spear",
+		"description": "A versatile polearm with good reach and balance.",
+		"price": 90,
+		"sellValue": 45,
+		"icon": "/Images/spear.png",
+		"category": "Weapon",
+		"weaponClass": "Polearms",
+		"weaponType": "Two-Handed",
+		"damage": 13,
+		"attackSpeed": {
+			"base": 1.05
+		},
+		"requirements": {
+			"level": 1,
+			"class": "Warrior",
+			"stats": {
+				"STR": 10,
+				"DEX": 5
+			}
+		},
+		"rank": "E"
+	},
+	"1133003": {
+		"id": 1133003,
+		"name": "Halberd",
+		"description": "A combination axe and spear for versatile combat.",
+		"price": 1200,
+		"sellValue": 600,
+		"icon": "/Images/halberd.png",
+		"category": "Weapon",
+		"weaponClass": "Polearms",
+		"weaponType": "Two-Handed",
+		"damage": 34,
+		"attackSpeed": {
+			"base": 0.95
+		},
+		"requirements": {
+			"level": 16,
+			"class": "Warrior",
+			"stats": {
+				"STR": 34,
+				"DEX": 12
+			}
+		},
+		"rank": "D"
+	},
+	"1141001": {
+		"id": 1141001,
+		"name": "Oakwood Mace",
+		"description": "A simple wooden mace for clerics and priests.",
+		"price": 60,
+		"sellValue": 30,
+		"icon": "/Images/woodenmace.jpg",
+		"category": "Weapon",
+		"weaponClass": "Mace",
+		"weaponType": "One-Handed",
+		"damage": 6,
+		"attackSpeed": {
+			"single": 1.08,
+			"shield": 1,
+			"base": 1.02
+		},
+		"requirements": {
+			"level": 1,
+			"class": "Acolyte",
+			"stats": {
+				"STR": 5
+			}
+		},
+		"rank": "E"
+	},
+	"1141002": {
+		"id": 1141002,
+		"name": "Brass Mace",
+		"description": "A reinforced mace with improved striking power.",
+		"price": 320,
+		"sellValue": 160,
+		"icon": "/Images/brassmace.jpg",
+		"category": "Weapon",
+		"weaponClass": "Mace",
+		"weaponType": "One-Handed",
+		"damage": 14,
+		"attackSpeed": {
+			"single": 1.08,
+			"shield": 1,
+			"base": 1.02
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Acolyte",
+			"stats": {
+				"STR": 10
+			}
+		},
+		"rank": "D"
+	},
+	"1141003": {
+		"id": 1141003,
+		"name": "Flail",
+		"description": "A chained weapon that bypasses armor with crushing blows.",
+		"price": 780,
+		"sellValue": 390,
+		"icon": "/Images/flail.png",
+		"category": "Weapon",
+		"weaponClass": "Mace",
+		"weaponType": "One-Handed",
+		"damage": 27,
+		"attackSpeed": {
+			"single": 1.05,
+			"shield": 0.9,
+			"base": 1.02
+		},
+		"requirements": {
+			"level": 21,
+			"class": "Acolyte",
+			"stats": {
+				"STR": 28
+			}
+		},
+		"rank": "D"
+	},
+	"1143001": {
+		"id": 1143001,
+		"name": "Oak Maul",
+		"description": "A massive two-handed hammer for crushing enemies.",
+		"price": 210,
+		"sellValue": 105,
+		"icon": "/Images/oakmaul.png",
+		"category": "Weapon",
+		"weaponClass": "Hammer",
+		"weaponType": "Two-Handed",
+		"damage": 24,
+		"attackSpeed": {
+			"base": 0.85
+		},
+		"requirements": {
+			"level": 6,
+			"class": "Warrior",
+			"stats": {
+				"STR": 24
+			}
+		},
+		"rank": "E"
+	},
+	"1153001": {
+		"id": 1153001,
+		"name": "Short Bow",
+		"description": "A compact bow suitable for beginners.",
+		"price": 80,
+		"sellValue": 40,
+		"icon": "/Images/shortbow.jpg",
+		"category": "Weapon",
+		"weaponClass": "Bows",
+		"weaponType": "Two-Handed",
+		"damage": 7,
+		"attackSpeed": {
+			"base": 1.25
+		},
+		"requirements": {
+			"level": 1,
+			"class": ["Archer", "Rogue"],
+			"stats": {
+				"STR": 3,
+				"DEX": 10
+			}
+		},
+		"rank": "E"
+	},
+	"1153002": {
+		"id": 1153002,
+		"name": "Long Bow",
+		"description": "A traditional bow with increased range and damage.",
+		"price": 550,
+		"sellValue": 275,
+		"icon": "/Images/longbow.png",
+		"category": "Weapon",
+		"weaponClass": "Bows",
+		"weaponType": "Two-Handed",
+		"damage": 18,
+		"attackSpeed": {
+			"base": 1.2
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Archer", "Rogue"],
+			"stats": {
+				"STR": 5,
+				"DEX": 22
+			}
+		},
+		"rank": "D"
+	},
+	"1153003": {
+		"id": 1153003,
+		"name": "Composite Bow",
+		"description": "An advanced bow made from multiple materials for superior performance.",
+		"price": 1000,
+		"sellValue": 500,
+		"icon": "/Images/compositebow.jpg",
+		"category": "Weapon",
+		"weaponClass": "Bows",
+		"weaponType": "Two-Handed",
+		"damage": 30,
+		"attackSpeed": {
+			"base": 1.2
+		},
+		"requirements": {
+			"level": 21,
+			"class": ["Archer", "Rogue"],
+			"stats": {
+				"STR": 7,
+				"DEX": 47
+			}
+		},
+		"rank": "D"
+	},
+	"1153004": {
+		"id": 1153004,
+		"name": "Crossbow",
+		"description": "A mechanical bow that trades speed for power.",
+		"price": 300,
+		"sellValue": 150,
+		"icon": "/Images/crossbow.jpg",
+		"category": "Weapon",
+		"weaponClass": "Crossbows",
+		"weaponType": "Two-Handed",
+		"damage": 16,
+		"attackSpeed": {
+			"base": 0.9
+		},
+		"requirements": {
+			"level": 6,
+			"class": ["Archer", "Rogue"],
+			"stats": {
+				"STR": 6,
+				"DEX": 16
+			}
+		},
+		"rank": "E"
+	},
+	"1161001": {
+		"id": 1161001,
+		"name": "Bone Scepter",
+		"description": "A macabre scepter carved from ancient bones.",
+		"price": 440,
+		"sellValue": 220,
+		"icon": "/Images/bonescepter.jpg",
+		"category": "Weapon",
+		"weaponClass": "Magical Focus",
+		"weaponType": "Scepters (One-Handed)",
+		"damage": 10,
+		"attackSpeed": {
+			"single": 1.05,
+			"shield": 0.95,
+			"base": 1.05
+		},
+		"requirements": {
+			"level": 6,
+			"class": "Mage",
+			"stats": {
+				"STR": 4,
+				"INT": 15,
+				"WIS": 15
+			},
+			"statLogic": {
+				"INT,WIS": "or"
+			}
+		},
+		"rank": "E"
+	},
+	"1161002": {
+		"id": 1161002,
+		"name": "Crystal-Tipped Scepter",
+		"description": "An elegant scepter topped with a focusing crystal.",
+		"price": 1060,
+		"sellValue": 530,
+		"icon": "/Images/crystaltippedscepter.jpg",
+		"category": "Weapon",
+		"weaponClass": "Magical Focus",
+		"weaponType": "Scepters (One-Handed)",
+		"damage": 30,
+		"attackSpeed": {
+			"single": 1.05,
+			"shield": 0.95,
+			"base": 1.05
+		},
+		"requirements": {
+			"level": 16,
+			"class": "Mage",
+			"stats": {
+				"STR": 6,
+				"INT": 50,
+				"WIS": 50
+			}
+		},
+		"rank": "D"
+	},
+	"1161003": {
+		"id": 1161003,
+		"name": "Old Wand",
+		"description": "A simple wand for apprentice spellcasters.",
+		"price": 80,
+		"sellValue": 40,
+		"icon": "/Images/oldwand.jpg",
+		"category": "Weapon",
+		"weaponClass": "Magical Focus",
+		"weaponType": "Wands (One-Handed)",
+		"damage": 5,
+		"attackSpeed": {
+			"single": 1.15,
+			"shield": 1,
+			"base": 1.15
+		},
+		"requirements": {
+			"level": 1,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"STR": 2,
+				"INT": 8,
+				"WIS": 8
+			},
+			"statLogic": {
+				"INT,WIS": "or"
+			}
+		},
+		"rank": "E"
+	},
+	"1161004": {
+		"id": 1161004,
+		"name": "Willow Wand",
+		"description": "A flexible wand made from sacred willow wood.",
+		"price": 620,
+		"sellValue": 310,
+		"icon": "/Images/willowwand.jpg",
+		"category": "Weapon",
+		"weaponClass": "Magical Focus",
+		"weaponType": "Wands (One-Handed)",
+		"damage": 15,
+		"attackSpeed": {
+			"single": 1.15,
+			"shield": 1,
+			"base": 1.15
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"STR": 3,
+				"INT": 24,
+				"WIS": 24
+			},
+			"statLogic": {
+				"INT,WIS": "or"
+			}
+		},
+		"rank": "D"
+	},
+	"1163001": {
+		"id": 1163001,
+		"name": "Old Oak Staff",
+		"description": "A weathered staff that channels magical energy.",
+		"price": 100,
+		"sellValue": 50,
+		"icon": "/Images/oldoakstaff.jpg",
+		"category": "Weapon",
+		"weaponClass": "Magical Focus",
+		"weaponType": "Staves (Two-Handed)",
+		"damage": 7,
+		"attackSpeed": {
+			"base": 1
+		},
+		"requirements": {
+			"level": 1,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"STR": 2,
+				"INT": 8,
+				"WIS": 8
+			},
+			"statLogic": {
+				"INT,WIS": "or"
+			}
+		},
+		"rank": "E"
+	},
+	"1163002": {
+		"id": 1163002,
+		"name": "Crystal-Core Staff",
+		"description": "A powerful staff with a magical crystal core.",
+		"price": 800,
+		"sellValue": 400,
+		"icon": "/Images/cyrstalcorestaff.jpg",
+		"category": "Weapon",
+		"weaponClass": "Magical Focus",
+		"weaponType": "Staves (Two-Handed)",
+		"damage": 21,
+		"attackSpeed": {
+			"base": 1
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"STR": 4,
+				"INT": 24,
+				"WIS": 24
+			},
+			"statLogic": {
+				"INT,WIS": "or"
+			}
+		},
+		"rank": "D"
+	},
+	"1171001": {
+		"id": 1171001,
+		"name": "Mallet",
+		"description": "A tinkerer's tool that doubles as a weapon.",
+		"price": 50,
+		"sellValue": 25,
+		"icon": "/Images/mallet.png",
+		"category": "Weapon",
+		"weaponClass": "Blunt",
+		"weaponType": "One-Handed",
+		"damage": 6,
+		"attackSpeed": {
+			"single": 1.1,
+			"shield": 1,
+			"base": 1.02
+		},
+		"requirements": {
+			"level": 1,
+			"class": "Tinkerer",
+			"stats": {
+				"STR": 5
+			}
+		},
+		"rank": "E"
+	},
+	"1171002": {
+		"id": 1171002,
+		"name": "Wrench",
+		"description": "A heavy-duty wrench perfect for both repairs and combat.",
+		"price": 280,
+		"sellValue": 140,
+		"icon": "/Images/wrench.png",
+		"category": "Weapon",
+		"weaponClass": "Blunt",
+		"weaponType": "One-Handed",
+		"damage": 16,
+		"attackSpeed": {
+			"single": 1.05,
+			"shield": 1,
+			"base": 1.02
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Tinkerer",
+			"stats": {
+				"STR": 12
+			}
+		},
+		"rank": "D"
+	},
+	"1171003": {
+		"id": 1171003,
+		"name": "Spanner",
+		"description": "A precision tool that delivers accurate strikes.",
+		"price": 720,
+		"sellValue": 360,
+		"icon": "/Images/spanner.png",
+		"category": "Weapon",
+		"weaponClass": "Blunt",
+		"weaponType": "One-Handed",
+		"damage": 24,
+		"attackSpeed": {
+			"single": 1.1,
+			"shield": 1,
+			"base": 1.02
+		},
+		"requirements": {
+			"level": 21,
+			"class": "Tinkerer",
+			"stats": {
+				"STR": 20
+			}
+		},
+		"rank": "D"
+	},
+	"1171004": {
+		"id": 1171004,
+		"name": "Wrist Bow",
+		"description": "A compact crossbow designed for tinkerers.",
+		"price": 600,
+		"sellValue": 300,
+		"icon": "/Images/wristbow.png",
+		"category": "Weapon",
+		"weaponClass": "Crossbows",
+		"weaponType": "One-Handed",
+		"damage": 20,
+		"attackSpeed": {
+			"base": 1.05
+		},
+		"requirements": {
+			"level": 16,
+			"class": "Tinkerer",
+			"stats": {
+				"STR": 10,
+				"DEX": 20,
+				"INT": 20
+			},
+			"craftPoints": {
+				"mainWeapon": 3
+			}
+		},
+		"rank": "D"
+	},
+	"1182001": {
+		"id": 1182001,
+		"name": "Wooden Shield",
+		"description": "A basic wooden shield that provides modest protection.",
+		"price": 60,
+		"sellValue": 30,
+		"icon": "/Images/woodenshield.jpg",
+		"category": "Armor",
+		"armorType": "One-Handed",
+		"armorSlot": "Shield",
+		"physicalDefense": 5,
+		"magicDefense": 3,
+		"attackSpeed": {
+			"base": 0.98
+		},
+		"effect": {
+			"hp": 150
+		},
+		"requirements": {
+			"level": 1,
+			"class": ["Warrior", "Tinkerer", "Acolyte"],
+			"stats": {
+				"STR": 10
+			}
+		},
+		"rank": "E"
+	},
+	"1182002": {
+		"id": 1182002,
+		"name": "Round Iron Shield",
+		"description": "A sturdy iron shield for experienced warriors.",
+		"price": 360,
+		"sellValue": 180,
+		"icon": "/Images/roundironshield.jpg",
+		"category": "Armor",
+		"armorType": "One-Handed",
+		"armorSlot": "Shield",
+		"physicalDefense": 10,
+		"magicDefense": 6,
+		"attackSpeed": {
+			"base": 0.95
+		},
+		"effect": {
+			"hp": 300
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Warrior",
+			"stats": {
+				"STR": 24
+			}
+		},
+		"rank": "D"
+	},
+	"1182003": {
+		"id": 1182003,
+		"name": "Tower Shield",
+		"description": "A massive shield offering maximum protection.",
+		"price": 880,
+		"sellValue": 440,
+		"icon": "/Images/towershield.jpg",
+		"category": "Armor",
+		"armorType": "One-Handed",
+		"armorSlot": "Shield",
+		"physicalDefense": 18,
+		"magicDefense": 10,
+		"attackSpeed": {
+			"base": 0.9
+		},
+		"effect": {
+			"hp": 500
+		},
+		"requirements": {
+			"level": 21,
+			"class": "Warrior",
+			"stats": {
+				"STR": 52
+			}
+		},
+		"rank": "D"
+	},
+	"1221001": {
+		"id": 1221001,
+		"name": "Old Hood",
+		"description": "A worn hood that provides basic head protection.",
+		"price": 200,
+		"sellValue": 100,
+		"icon": "/Images/oldhood.jpg",
+		"category": "Armor",
+		"armorType": "Medium",
+		"armorSlot": "Head",
+		"physicalDefense": 2,
+		"magicDefense": 1,
+		"attackSpeed": {
+			"base": 1.02
+		},
+		"effect": {
+			"hp": 50
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Archer", "Rogue", "Tinkerer"],
+			"stats": {
+				"CON": 4
+			}
+		},
+		"rank": "D"
+	},
+	"1221002": {
+		"id": 1221002,
+		"name": "Leather Hood",
+		"description": "A durable leather hood for experienced adventurers.",
+		"price": 700,
+		"sellValue": 350,
+		"icon": "/Images/leatherhood.jpg",
+		"category": "Armor",
+		"armorType": "Medium",
+		"armorSlot": "Head",
+		"physicalDefense": 5,
+		"magicDefense": 2,
+		"attackSpeed": {
+			"base": 1.02
+		},
+		"effect": {
+			"hp": 100
+		},
+		"requirements": {
+			"level": 21,
+			"class": ["Archer", "Rogue", "Tinkerer"],
+			"stats": {
+				"CON": 10
+			}
+		},
+		"rank": "D"
+	},
+	"1222001": {
+		"id": 1222001,
+		"name": "Cloth Armor",
+		"description": "Basic cloth protection for agile fighters.",
+		"price": 80,
+		"sellValue": 40,
+		"icon": "/Images/clotharmor.jpg",
+		"category": "Armor",
+		"armorType": "Medium Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 6,
+		"magicDefense": 4,
+		"attackSpeed": {
+			"base": 1.02
+		},
+		"effect": {
+			"hp": 50
+		},
+		"requirements": {
+			"level": 1,
+			"class": ["Archer", "Tinkerer"],
+			"stats": {
+				"CON": 2
+			}
+		},
+		"rank": "E"
+	},
+	"1222002": {
+		"id": 1222002,
+		"name": "Leather Jerkin",
+		"description": "Flexible leather armor that balances protection and mobility.",
+		"price": 420,
+		"sellValue": 210,
+		"icon": "/Images/leatherjerkin.jpg",
+		"category": "Armor",
+		"armorType": "Medium Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 12,
+		"magicDefense": 8,
+		"attackSpeed": {
+			"base": 1.035
+		},
+		"effect": {
+			"hp": 100
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Archer", "Tinkerer"],
+			"stats": {
+				"CON": 4
+			}
+		},
+		"rank": "D"
+	},
+	"1222003": {
+		"id": 1222003,
+		"name": "Studded Hide Armor",
+		"description": "Reinforced leather armor with metal studs.",
+		"price": 1200,
+		"sellValue": 600,
+		"icon": "/Images/studdedleatherarmor.jpg",
+		"category": "Armor",
+		"armorType": "Medium Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 18,
+		"magicDefense": 12,
+		"attackSpeed": {
+			"base": 1.05
+		},
+		"effect": {
+			"hp": 200
+		},
+		"requirements": {
+			"level": 21,
+			"class": ["Archer", "Tinkerer"],
+			"stats": {
+				"CON": 10
+			}
+		},
+		"rank": "D"
+	},
+	"1222004": {
+		"id": 1222004,
+		"name": "Blackend Cloth Armor",
+		"description": "Dark cloth armor designed for stealth operations.",
+		"price": 90,
+		"sellValue": 45,
+		"icon": "/Images/blackendclotharmor.jpg",
+		"category": "Armor",
+		"armorType": "Medium Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 6,
+		"magicDefense": 4,
+		"attackSpeed": {
+			"base": 1.02
+		},
+		"effect": {
+			"hp": 50
+		},
+		"requirements": {
+			"level": 1,
+			"class": "Rogue",
+			"stats": {
+				"CON": 2
+			}
+		},
+		"rank": "E"
+	},
+	"1222005": {
+		"id": 1222005,
+		"name": "Blackend Leather Jerkin",
+		"description": "Darkened leather armor that aids in concealment.",
+		"price": 440,
+		"sellValue": 220,
+		"icon": "/Images/blackendleatherjerkin.jpg",
+		"category": "Armor",
+		"armorType": "Medium Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 12,
+		"magicDefense": 8,
+		"attackSpeed": {
+			"base": 1.04
+		},
+		"effect": {
+			"hp": 100
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Rogue",
+			"stats": {
+				"CON": 4
+			}
+		},
+		"rank": "D"
+	},
+	"1222006": {
+		"id": 1222006,
+		"name": "Blackend Leather Robe",
+		"description": "An advanced rogue's garment combining protection and stealth.",
+		"price": 1200,
+		"sellValue": 600,
+		"icon": "/Images/blackendleatherrobe.jpg",
+		"category": "Armor",
+		"armorType": "Medium Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 18,
+		"magicDefense": 12,
+		"attackSpeed": {
+			"base": 1.06
+		},
+		"effect": {
+			"hp": 200
+		},
+		"requirements": {
+			"level": 21,
+			"class": "Rogue",
+			"stats": {
+				"CON": 10
+			}
+		},
+		"rank": "D"
+	},
+	"1223001": {
+		"id": 1223001,
+		"name": "Old Leather Boots",
+		"description": "Basic leather boots for everyday adventuring.",
+		"price": 40,
+		"sellValue": 20,
+		"icon": "/Images/oldleatherboots.jpg",
+		"category": "Armor",
+		"armorType": "Medium",
+		"armorSlot": "Boots",
+		"physicalDefense": 2,
+		"magicDefense": 1,
+		"attackSpeed": {
+			"base": 1.02
+		},
+		"effects": {
+			"HP": 50
+		},
+		"requirements": {
+			"level": 1,
+			"class": ["Archer", "Rogue", "Tinkerer"],
+			"stats": {
+				"CON": 2
+			}
+		},
+		"rank": "E"
+	},
+	"1223002": {
+		"id": 1223002,
+		"name": "Studded Leather Boots",
+		"description": "Reinforced leather boots with metal studs for extra protection.",
+		"price": 100,
+		"sellValue": 50,
+		"icon": "/Images/studdedleatherboots.jpg",
+		"category": "Armor",
+		"armorType": "Medium",
+		"armorSlot": "Boots",
+		"physicalDefense": 4,
+		"magicDefense": 2,
+		"attackSpeed": {
+			"base": 1.03
+		},
+		"requirements": {
+			"level": 21,
+			"class": ["Archer", "Rogue", "Tinkerer"],
+			"stats": {
+				"DEX": 10
+			}
+		},
+		"rank": "D"
+	},
+	"1224001": {
+		"id": 1224001,
+		"name": "Leather Belt",
+		"description": "A sturdy leather belt for medium armor wearers.",
+		"price": 280,
+		"sellValue": 140,
+		"icon": "/Images/leatherbelt.jpg",
+		"category": "Armor",
+		"armorType": "Medium",
+		"armorSlot": "Belt",
+		"physicalDefense": 3,
+		"magicDefense": 1,
+		"attackSpeed": {
+			"base": 1.02
+		},
+		"effects": {
+			"HP": 50
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Archer", "Rogue", "Tinkerer"],
+			"stats": {
+				"CON": 4
+			}
+		},
+		"rank": "D"
+	},
+	"1231001": {
+		"id": 1231001,
+		"name": "Leather Bascinet",
+		"description": "A basic leather helmet providing modest head protection.",
+		"price": 300,
+		"sellValue": 150,
+		"icon": "/Images/leatherbascinet.jpg",
+		"category": "Armor",
+		"armorType": "Heavy",
+		"armorSlot": "Head",
+		"physicalDefense": 4,
+		"magicDefense": 1,
+		"attackSpeed": {
+			"base": 1
+		},
+		"effect": {
+			"hp": 50
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Warrior",
+			"stats": {
+				"CON": 6
+			}
+		},
+		"rank": "D"
+	},
+	"1231002": {
+		"id": 1231002,
+		"name": "Barbute",
+		"description": "An advanced helmet with excellent protection.",
+		"price": 900,
+		"sellValue": 450,
+		"icon": "/Images/barbute.png",
+		"category": "Armor",
+		"armorType": "Heavy",
+		"armorSlot": "Head",
+		"physicalDefense": 10,
+		"magicDefense": 2,
+		"attackSpeed": {
+			"base": 0.98
+		},
+		"effect": {
+			"hp": 100
+		},
+		"requirements": {
+			"level": 21,
+			"class": "Warrior",
+			"stats": {
+				"CON": 18
+			}
+		},
+		"rank": "D"
+	},
+	"1232001": {
+		"id": 1232001,
+		"name": "Old Chainmail",
+		"description": "Weathered chainmail that still provides reliable protection.",
+		"price": 100,
+		"sellValue": 50,
+		"icon": "/Images/oldchainmail.jpg",
+		"category": "Armor",
+		"armorType": "Heavy Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 12,
+		"magicDefense": 2,
+		"attackSpeed": {
+			"base": 0.98
+		},
+		"effect": {
+			"hp": 50
+		},
+		"requirements": {
+			"level": 1,
+			"class": "Warrior",
+			"stats": {
+				"CON": 2
+			}
+		},
+		"rank": "E"
+	},
+	"1232002": {
+		"id": 1232002,
+		"name": "Brigandine",
+		"description": "Reinforced armor with metal plates for enhanced protection.",
+		"price": 500,
+		"sellValue": 250,
+		"icon": "/Images/brigandine.jpg",
+		"category": "Armor",
+		"armorType": "Heavy Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 24,
+		"magicDefense": 4,
+		"attackSpeed": {
+			"base": 0.96
+		},
+		"effect": {
+			"hp": 100
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Warrior",
+			"stats": {
+				"CON": 6
+			}
+		},
+		"rank": "D"
+	},
+	"1232003": {
+		"id": 1232003,
+		"name": "Cuirass",
+		"description": "Professional-grade armor offering superior protection.",
+		"price": 1400,
+		"sellValue": 700,
+		"icon": "/Images/cuirass.jpg",
+		"category": "Armor",
+		"armorType": "Heavy Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 36,
+		"magicDefense": 6,
+		"attackSpeed": {
+			"base": 0.94
+		},
+		"effect": {
+			"hp": 200
+		},
+		"requirements": {
+			"level": 21,
+			"class": "Warrior",
+			"stats": {
+				"CON": 18
+			}
+		},
+		"rank": "D"
+	},
+	"1233001": {
+		"id": 1233001,
+		"name": "Old Plated Boots",
+		"description": "Worn metal boots that still provide decent protection.",
+		"price": 50,
+		"sellValue": 25,
+		"icon": "/Images/oldplatedboots.jpg",
+		"category": "Armor",
+		"armorType": "Heavy",
+		"armorSlot": "Boots",
+		"physicalDefense": 3,
+		"magicDefense": 1,
+		"attackSpeed": {
+			"base": 0.98
+		},
+		"effects": {
+			"HP": 50
+		},
+		"requirements": {
+			"level": 1,
+			"class": "Warrior",
+			"stats": {
+				"CON": 2
+			}
+		},
+		"rank": "E"
+	},
+	"1233002": {
+		"id": 1233002,
+		"name": "Iron Plated Boots",
+		"description": "Heavy-duty iron boots for maximum foot protection.",
+		"price": 180,
+		"sellValue": 90,
+		"icon": "/Images/ironplatedboots.jpg",
+		"category": "Armor",
+		"armorType": "Heavy",
+		"armorSlot": "Boots",
+		"physicalDefense": 6,
+		"magicDefense": 2,
+		"attackSpeed": {
+			"base": 0.96
+		},
+		"requirements": {
+			"level": 21,
+			"class": "Warrior",
+			"stats": {
+				"CON": 10
+			}
+		},
+		"rank": "D"
+	},
+	"1234001": {
+		"id": 1234001,
+		"name": "Plated Belt",
+		"description": "A reinforced belt with metal plating.",
+		"price": 320,
+		"sellValue": 160,
+		"icon": "/Images/platedbelt.png",
+		"category": "Armor",
+		"armorType": "Heavy",
+		"armorSlot": "Belt",
+		"physicalDefense": 5,
+		"magicDefense": 1,
+		"attackSpeed": {
+			"base": 0.98
+		},
+		"effect": {
+			"hp": 50
+		},
+		"requirements": {
+			"level": 11,
+			"class": "Warrior",
+			"stats": {
+				"CON": 6
+			}
+		},
+		"rank": "D"
+	},
+	"1241001": {
+		"id": 1241001,
+		"name": "Novice Hood",
+		"description": "Simple hood worn by apprentice magic users.",
+		"price": 240,
+		"sellValue": 120,
+		"icon": "/Images/novicehood.jpg",
+		"category": "Armor",
+		"armorType": "Magic",
+		"armorSlot": "Head",
+		"physicalDefense": 1,
+		"magicDefense": 4,
+		"attackSpeed": {
+			"base": 1
+		},
+		"effect": {
+			"hp": 50
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"CON": 4
+			}
+		},
+		"rank": "D"
+	},
+	"1241002": {
+		"id": 1241002,
+		"name": "Silk Hood",
+		"description": "An elegant hood that enhances magical focus.",
+		"price": 800,
+		"sellValue": 400,
+		"icon": "/Images/silkhood.jpg",
+		"category": "Armor",
+		"armorType": "Magic",
+		"armorSlot": "Head",
+		"physicalDefense": 2,
+		"magicDefense": 10,
+		"attackSpeed": {
+			"base": 1
+		},
+		"requirements": {
+			"level": 21,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"CON": 10
+			}
+		},
+		"rank": "D"
+	},
+	"1242001": {
+		"id": 1242001,
+		"name": "Silk Robe",
+		"description": "Luxurious silk robe that enhances magical abilities.",
+		"price": 1300,
+		"sellValue": 650,
+		"icon": "/Images/silkrobe.jpg",
+		"category": "Armor",
+		"armorType": "Magic Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 6,
+		"magicDefense": 42,
+		"attackSpeed": {
+			"base": 1.05
+		},
+		"effect": {
+			"hp": 200
+		},
+		"requirements": {
+			"level": 21,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"CON": 10
+			}
+		},
+		"rank": "D"
+	},
+	"1242002": {
+		"id": 1242002,
+		"name": "Novice Robe",
+		"description": "Simple robes worn by beginning spellcasters.",
+		"price": 90,
+		"sellValue": 45,
+		"icon": "/Images/novicerobe.jpg",
+		"category": "Armor",
+		"armorType": "Magic Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 2,
+		"magicDefense": 12,
+		"attackSpeed": {
+			"base": 1.02
+		},
+		"effect": {
+			"hp": 50
+		},
+		"requirements": {
+			"level": 1,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"CON": 2
+			}
+		},
+		"rank": "E"
+	},
+	"1242003": {
+		"id": 1242003,
+		"name": "Embroidered Robe",
+		"description": "Elegantly decorated robes that channel magical energy.",
+		"price": 480,
+		"sellValue": 240,
+		"icon": "/Images/embroideredrobe.jpg",
+		"category": "Armor",
+		"armorType": "Magic Armor",
+		"armorSlot": "Body",
+		"physicalDefense": 4,
+		"magicDefense": 24,
+		"attackSpeed": {
+			"base": 1.035
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"CON": 4
+			}
+		},
+		"rank": "D"
+	},
+	"1243001": {
+		"id": 1243001,
+		"name": "Novice Magic Boots",
+		"description": "Simple enchanted boots for beginning spellcasters.",
+		"price": 40,
+		"sellValue": 20,
+		"icon": "/Images/novicemagicboots.jpg",
+		"category": "Armor",
+		"armorType": "Magic",
+		"armorSlot": "Boots",
+		"physicalDefense": 1,
+		"magicDefense": 3,
+		"attackSpeed": {
+			"base": 1
+		},
+		"effects": {
+			"HP": 50
+		},
+		"requirements": {
+			"level": 1,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"CON": 2
+			}
+		},
+		"rank": "E"
+	},
+	"1243002": {
+		"id": 1243002,
+		"name": "Arcane Boots",
+		"description": "Magical boots that enhance spellcasting mobility.",
+		"price": 640,
+		"sellValue": 320,
+		"icon": "/Images/arcaneboots.jpg",
+		"category": "Armor",
+		"armorType": "Magic",
+		"armorSlot": "Boots",
+		"physicalDefense": 2,
+		"magicDefense": 6,
+		"attackSpeed": {
+			"base": 1
+		},
+		"requirements": {
+			"level": 21,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"CON": 10
+			}
+		},
+		"rank": "D"
+	},
+	"1244001": {
+		"id": 1244001,
+		"name": "Arcane Sash",
+		"description": "A magical sash that enhances spellcasting ability.",
+		"price": 300,
+		"sellValue": 150,
+		"icon": "/Images/arcanesash.jpg",
+		"category": "Armor",
+		"armorType": "Magic",
+		"armorSlot": "Belt",
+		"physicalDefense": 1,
+		"magicDefense": 5,
+		"attackSpeed": {
+			"base": 1
+		},
+		"effects": {
+			"HP": 50
+		},
+		"requirements": {
+			"level": 11,
+			"class": ["Mage", "Acolyte"],
+			"stats": {
+				"CON": 4
+			}
+		},
+		"rank": "D"
+	},
+	"2110004": {
+		"id": 2110004,
+		"name": "Minor Healing Potion",
+		"description": "Restores a small amount of health when consumed.",
+		"price": 15,
+		"sellValue": 8,
+		"icon": "/Images/hp1.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"hp": 25
+		}
+	},
+	"2110005": {
+		"id": 2110005,
+		"name": "Light Healing Potion",
+		"description": "Restores a moderate amount of health when consumed.",
+		"price": 35,
+		"sellValue": 18,
+		"icon": "/Images/hp2.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"hp": 75
+		}
+	},
+	"2110006": {
+		"id": 2110006,
+		"name": "Greater Healing Potion",
+		"description": "Restores a large amount of health when consumed.",
+		"price": 75,
+		"sellValue": 38,
+		"icon": "/Images/hp4.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"hp": 150
+		}
+	},
+	"2110007": {
+		"id": 2110007,
+		"name": "Superior Healing Potion",
+		"description": "Restores a significant amount of health when consumed.",
+		"price": 150,
+		"sellValue": 75,
+		"icon": "/Images/hp5.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"hp": 300
+		}
+	},
+	"2110008": {
+		"id": 2110008,
+		"name": "Ultimate Healing Potion",
+		"description": "Restores a massive amount of health when consumed.",
+		"price": 300,
+		"sellValue": 150,
+		"icon": "/Images/hp6.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"hp": 600
+		}
+	},
+	"2110009": {
+		"id": 2110009,
+		"name": "Full Healing Potion",
+		"description": "Restores all health when consumed.",
+		"price": 500,
+		"sellValue": 250,
+		"icon": "/Images/hp6.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"hp": "full"
+		}
+	},
+	"2110010": {
+		"id": 2110010,
+		"name": "Minor Spirit Potion",
+		"description": "Restores a small amount of spirit when consumed.",
+		"price": 20,
+		"sellValue": 10,
+		"icon": "/Images/sp1.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"sp": 25
+		}
+	},
+	"2110011": {
+		"id": 2110011,
+		"name": "Light Spirit Potion",
+		"description": "Restores a moderate amount of spirit when consumed.",
+		"price": 45,
+		"sellValue": 23,
+		"icon": "/Images/sp2.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"sp": 75
+		}
+	},
+	"2110012": {
+		"id": 2110012,
+		"name": "Greater Spirit Potion",
+		"description": "Restores a large amount of spirit when consumed.",
+		"price": 90,
+		"sellValue": 45,
+		"icon": "/Images/sp3.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"sp": 150
+		}
+	},
+	"2110013": {
+		"id": 2110013,
+		"name": "Superior Spirit Potion",
+		"description": "Restores a significant amount of spirit when consumed.",
+		"price": 180,
+		"sellValue": 90,
+		"icon": "/Images/sp4.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"sp": 300
+		}
+	},
+	"2110014": {
+		"id": 2110014,
+		"name": "Ultimate Spirit Potion",
+		"description": "Restores a massive amount of spirit when consumed.",
+		"price": 350,
+		"sellValue": 175,
+		"icon": "/Images/sp5.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"sp": 600
+		}
+	},
+	"2110015": {
+		"id": 2110015,
+		"name": "Full Spirit Potion",
+		"description": "Restores all spirit when consumed.",
+		"price": 600,
+		"sellValue": 300,
+		"icon": "/Images/sp6.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"sp": "full"
+		}
+	},
+	"2120001": {
+		"id": 2120001,
+		"name": "Lesser Antidote",
+		"description": "Basic antidote that cures mild poisons.",
+		"price": 30,
+		"sellValue": 15,
+		"icon": "/Images/antidote1.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"type": "antidote",
+			"level": "lesser"
+		}
+	},
+	"2120002": {
+		"id": 2120002,
+		"name": "Normal Antidote",
+		"description": "Standard antidote that cures most poisons.",
+		"price": 60,
+		"sellValue": 30,
+		"icon": "/Images/antidote2.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"type": "antidote",
+			"level": "normal"
+		}
+	},
+	"2120003": {
+		"id": 2120003,
+		"name": "Greater Antidote",
+		"description": "Advanced antidote that cures strong poisons.",
+		"price": 250,
+		"sellValue": 125,
+		"icon": "/Images/antidote3.PNG",
+		"category": "Potion - Consumable",
+		"effect": {
+			"type": "antidote",
+			"level": "advanced"
+		}
+	},
+	"2240001": {
+		"id": 2240001,
+		"name": "Will-o'-Smoke",
+		"description": "A consumable smoke bomb that reduces enemy accuracy.",
+		"price": 5,
+		"sellValue": 3,
+		"icon": "/Images/smoke.PNG",
+		"category": "Weapon - Consumable",
+		"effect": {
+			"type": "damage",
+			"amount": 1,
+			"debuff": {
+				"type": "accuracy",
+				"reduction": 20,
+				"duration": 120
+			}
+		},
+		"requirements": {
+			"level": 1,
+			"class": "Tinkerer",
+			"stats": {
+				"INT": 6
+			},
+			"craftPoints": {
+				"subWeapon": 5
+			}
+		}
+	},
+	"2240002": {
+		"id": 2240002,
+		"name": "Shuriken",
+		"description": "A throwing weapon that deals quick damage.",
+		"price": 20,
+		"sellValue": 10,
+		"icon": "/Images/shuriken.PNG",
+		"category": "Weapon - Consumable",
+		"weaponClass": "Gadgets",
+		"weaponType": "One-Handed Tools",
+		"damage": 5,
+		"attackSpeed": {
+			"base": 1
+		},
+		"consumable": true,
+		"requirements": {
+			"level": 6,
+			"class": ["Rogue", "Tinkerer"],
+			"stats": {
+				"DEX": 10,
+				"INT": 10
+			}
+		}
+	},
+	"2240003": {
+		"id": 2240003,
+		"name": "Pocketful of Caltrops",
+		"description": "Sharp metal spikes that damage and slow enemies.",
+		"price": 5,
+		"sellValue": 3,
+		"icon": "/Images/caltrop.jpg",
+		"category": "Weapon - Consumable",
+		"weaponClass": "Gadgets",
+		"weaponType": "One-Handed Tools",
+		"damage": 2,
+		"attackSpeed": {
+			"base": 1
+		},
+		"consumable": true,
+		"requirements": {
+			"level": 1,
+			"class": ["Rogue", "Tinkerer"],
+			"stats": {
+				"DEX": 6,
+				"INT": 6
+			}
+		}
+	},
+	"2240004": {
+		"id": 2240004,
+		"name": "Random E Rank Equipment Box",
+		"description": "A mysterious box containing random E-rank equipment. Open it to receive one of five possible equipment types!",
+		"price": 0,
+		"sellValue": 50,
+		"icon": "./Images/box-e1.png",
+		"category": "Container - Consumable",
+		"consumable": true,
+		"randomRewards": [
+			{
+				"item": "2240005",
+				"chance": 20
+			},
+			{
+				"item": "2240006",
+				"chance": 20
+			},
+			{
+				"item": "2240007",
+				"chance": 20
+			},
+			{
+				"item": "2240008",
+				"chance": 20
+			},
+			{
+				"item": "2240009",
+				"chance": 20
+			}
+		],
+		"requirements": {
+			"level": 1
+		}
+	},
+	"2240005": {
+		"id": 2240005,
+		"name": "E Rank Heavy Armor Box",
+		"description": "Contains a random piece of E-rank heavy armor equipment.",
+		"price": 0,
+		"sellValue": 25,
+		"icon": "./Images/box-e2.png",
+		"category": "Container - Consumable",
+		"consumable": true,
+		"randomRewards": [
+			{
+				"item": "e-rank-heavy-armor-1",
+				"chance": 100
+			}
+		],
+		"requirements": {
+			"level": 1
+		}
+	},
+	"2240006": {
+		"id": 2240006,
+		"name": "E Rank Medium Armor Box",
+		"description": "Contains a random piece of E-rank medium armor equipment.",
+		"price": 0,
+		"sellValue": 25,
+		"icon": "./Images/box-e3.png",
+		"category": "Container - Consumable",
+		"consumable": true,
+		"randomRewards": [
+			{
+				"item": "e-rank-medium-armor-1",
+				"chance": 100
+			}
+		],
+		"requirements": {
+			"level": 1
+		}
+	},
+	"2240007": {
+		"id": 2240007,
+		"name": "E Rank Physical Weapon Box",
+		"description": "Contains a random E-rank physical weapon.",
+		"price": 0,
+		"sellValue": 25,
+		"icon": "./Images/box-e4.png",
+		"category": "Container - Consumable",
+		"consumable": true,
+		"randomRewards": [
+			{
+				"item": "e-rank-physical-weapon-1",
+				"chance": 100
+			}
+		],
+		"requirements": {
+			"level": 1
+		}
+	},
+	"2240008": {
+		"id": 2240008,
+		"name": "E Rank Magic Weapon Box",
+		"description": "Contains a random E-rank magic weapon.",
+		"price": 0,
+		"sellValue": 25,
+		"icon": "./Images/box-e5.png",
+		"category": "Container - Consumable",
+		"consumable": true,
+		"randomRewards": [
+			{
+				"item": "e-rank-magic-weapon-1",
+				"chance": 100
+			}
+		],
+		"requirements": {
+			"level": 1
+		}
+	},
+	"2240009": {
+		"id": 2240009,
+		"name": "E Rank Magic Armor Box",
+		"description": "Contains a random piece of E-rank magic armor equipment.",
+		"price": 0,
+		"sellValue": 25,
+		"icon": "./Images/box-e6.png",
+		"category": "Container - Consumable",
+		"consumable": true,
+		"randomRewards": [
+			{
+				"item": "e-rank-magic-armor-1",
+				"chance": 100
+			}
+		],
+		"requirements": {
+			"level": 1
+		}
+	}
+,
+	"2300001": {
+		"id": 2300001,
+		"name": "E-Rank Crystal Fragment",
+		"description": "Crystal Fragment collected from slain monsters. Unknown effect.",
+		"price": 0,
+		"sellValue": 0,
+		"icon": "/Images/e-stone.png",
+		"category": "Material",
+		"stackable": true
+	},
+	"2300002": {
+		"id": 2300002,
+		"name": "D-Rank Crystal Fragment",
+		"description": "Crystal Fragment collected from slain monsters. Unknown effect.",
+		"price": 0,
+		"sellValue": 0,
+		"icon": "/Images/d-stone.PNG",
+		"category": "Material",
+		"stackable": true
+	},
+	"2300003": {
+		"id": 2300003,
+		"name": "C-Rank Crystal Fragment",
+		"description": "Crystal Fragment collected from slain monsters. Unknown effect.",
+		"price": 0,
+		"sellValue": 0,
+		"icon": "/Images/c-stone.PNG",
+		"category": "Material",
+		"stackable": true
+	},
+	"2300004": {
+		"id": 2300004,
+		"name": "B-Rank Crystal Fragment",
+		"description": "Crystal Fragment collected from slain monsters. Unknown effect.",
+		"price": 0,
+		"sellValue": 0,
+		"icon": "/Images/b-stone.PNG",
+		"category": "Material",
+		"stackable": true
+	},
+	"2300005": {
+		"id": 2300005,
+		"name": "A-Rank Crystal Fragment",
+		"description": "Crystal Fragment collected from slain monsters. Unknown effect.",
+		"price": 0,
+		"sellValue": 0,
+		"icon": "/Images/a-stone.PNG",
+		"category": "Material",
+		"stackable": true
+	},
+	"2300006": {
+		"id": 2300006,
+		"name": "S-Rank Crystal Fragment",
+		"description": "Crystal Fragment collected from slain monsters. Unknown effect.",
+		"price": 0,
+		"sellValue": 0,
+		"icon": "/Images/s-stone.PNG",
+		"category": "Material",
+		"stackable": true
+	}
+}

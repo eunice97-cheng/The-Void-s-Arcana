@@ -1,0 +1,47 @@
+:root {
+	--accent: rgba(138, 43, 226, 0.6);
+}
+
+/* Global utility: visually-hide content but keep for screen readers */
+.sr-only {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0 0 0 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+/* Global utility: hidden metadata anchor used by automated tools */
+.conversation-meta {
+	position: absolute !important;
+	opacity: 0 !important;
+	pointer-events: none !important;
+	height: 0 !important;
+	width: 0 !important;
+	overflow: hidden !important;
+}
+
+/* Global icon button styling (used by small UI components) */
+.icon-btn {
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	background: rgba(30, 30, 46, 0.95);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	font-size: 18px;
+	transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+	background: rgba(255, 255, 255, 0.15);
+	transform: translateY(-2px);
+}

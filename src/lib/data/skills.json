@@ -1,0 +1,448 @@
+[
+	{
+		"id": "warrior_eyes_of_the_eagle",
+		"class": "warrior",
+		"name": "Eyes of The Eagle",
+		"type": "passive",
+		"level": 1,
+		"description": "Years of drilling countless forms and stances have honed the Warrior's ability to find openings in an opponent's defense, making their attacks far more reliable.",
+		"effects": {
+			"accuracyFlat": 0.25
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Warrior/Eyes%20of%20The%20Eagle.png"
+	},
+	{
+		"id": "rogue_stealth",
+		"class": "rogue",
+		"name": "Stealth",
+		"type": "active",
+		"level": 1,
+		"description": "When a plan goes awry, a wise Rogue knows that discretion is the better part of valor. They use their knowledge of the environment to slip away unseen, living to fight another day.",
+		"effects": {
+			"escapeFailedQuest": true
+		},
+		"spCost": 0,
+		"cooldownSeconds": 28800,
+		"acquisition": null,
+		"icon": "/Images/Skills/Rogue/Stealth.png"
+	},
+	{
+		"id": "archer_arrow_craft",
+		"class": "archer",
+		"name": "Arrow Craft",
+		"type": "passive",
+		"level": 1,
+		"description": "The Archer's knowledge of fletching allows them to craft their own ammunition from materials found in the wild, saving gold and ensuring a steady supply.",
+		"effects": {
+			"craftArrowsFree": true
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Archer/Arrow%20Craft.png"
+	},
+	{
+		"id": "mage_magic_barrier",
+		"class": "mage",
+		"name": "Magic Barrier",
+		"type": "active",
+		"level": 1,
+		"description": "The Mage conjures a shimmering shield of arcane energy to deflect incoming harm.",
+		"effects": {
+			"damageReductionPercent": 30,
+			"durationSeconds": 10
+		},
+		"spCost": 25,
+		"cooldownSeconds": 30,
+		"acquisition": null,
+		"icon": "/Images/Skills/Mage/Magic%20Barrier.png"
+	},
+	{
+		"id": "acolyte_heal",
+		"class": "acolyte",
+		"name": "Heal",
+		"type": "active",
+		"level": 1,
+		"description": "A beam of pure life energy streams from the Acolyte's hand. For the living, it knits flesh and bone. For the walking dead, it is a purifying fire.",
+		"effects": {
+			"healAmount": 150,
+			"undeadDamage": 250
+		},
+		"spCost": 20,
+		"cooldownSeconds": 10,
+		"acquisition": null,
+		"icon": "/Images/Skills/Acolyte/Heal.png"
+	},
+	{
+		"id": "tinkerer_magic_exoskeleton",
+		"class": "tinkerer",
+		"name": "Magic Exoskeleton",
+		"type": "passive",
+		"level": 1,
+		"description": "By integrating a network of magic circuits with their nervous system, the Tinkerer has successfully enhanced their physical form, achieving a perfect blend of brute strength and arcane durability.",
+		"effects": {
+			"physicalDefenseFlat": 20,
+			"magicDefenseFlat": 10
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Tinkerer/Magic%20Exoskeleton.png"
+	},
+	{
+		"id": "tinkerer_craft",
+		"class": "tinkerer",
+		"name": "Craft",
+		"type": "passive",
+		"level": 1,
+		"description": "You don't just build; you reinvent. You can create, modify, and repair complex devices, often blending mundane technology with arcane components to produce miraculous and sometimes unpredictable effects.",
+		"effects": {
+			"grantCraftingAbilities": true
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Tinkerer/Craft.png"
+	},
+	{
+		"id": "mage_ifrit",
+		"class": "mage",
+		"name": "Ifrit",
+		"type": "passive",
+		"level": 1,
+		"description": "Obtain the Blessing of Ifrit",
+		"effects": {
+			"elementalDamagePercent": 30,
+			"element": "fire",
+			"elementalAgainst": {
+				"air": 50,
+				"water": -25,
+				"fire": 25,
+				"earth": 25,
+				"light": 25,
+				"dark": 25,
+				"neutral": 25
+			}
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Mage/ifrit.png"
+	},
+	{
+		"id": "mage_ifrit_adv",
+		"class": "mage",
+		"name": "Ifrit Ascendant",
+		"type": "passive",
+		"level": 1,
+		"description": "Obtain the Blessing of Ifrit Ascendant",
+		"effects": {
+			"elementalDamagePercent": 30,
+			"element": "fire",
+			"elementalAgainst": {
+				"air": 50,
+				"water": 25,
+				"fire": 25,
+				"earth": 25,
+				"light": 25,
+				"dark": 25,
+				"neutral": 25
+			}
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Mage/ifrit-badge.png"
+	},
+	{
+		"id": "mage_nereid",
+		"class": "mage",
+		"name": "Nereid",
+		"type": "passive",
+		"level": 1,
+		"description": "Obtain the Blessing of Nereid",
+		"effects": {
+			"elementalDamagePercent": 30,
+			"element": "water",
+			"elementalAgainst": {
+				"fire": 50,
+				"earth": -25,
+				"air": 25,
+				"water": 25,
+				"light": 25,
+				"dark": 25,
+				"neutral": 25
+			}
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Mage/nereid.png"
+	},
+	{
+		"id": "mage_nereid_adv",
+		"class": "mage",
+		"name": "Nereid Ascendant",
+		"type": "passive",
+		"level": 1,
+		"description": "Obtain the Blessing of Nereid Ascendant",
+		"effects": {
+			"elementalDamagePercent": 30,
+			"element": "water",
+			"elementalAgainst": {
+				"fire": 50,
+				"earth": 25,
+				"air": 25,
+				"water": 25,
+				"light": 25,
+				"dark": 25,
+				"neutral": 25
+			}
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Mage/nereid-badge.PNG"
+	},
+	{
+		"id": "mage_verdure",
+		"class": "mage",
+		"name": "Verdure",
+		"type": "passive",
+		"level": 1,
+		"description": "Obtain the Blessing of Verdure",
+		"effects": {
+			"elementalDamagePercent": 30,
+			"element": "earth",
+			"elementalAgainst": {
+				"water": 50,
+				"air": -25,
+				"fire": 25,
+				"earth": 25,
+				"light": 25,
+				"dark": 25,
+				"neutral": 25
+			}
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Mage/verdure.png"
+	},
+	{
+		"id": "mage_verdure_adv",
+		"class": "mage",
+		"name": "Verdure Ascendant",
+		"type": "passive",
+		"level": 1,
+		"description": "Obtain the Blessing of Verdure Ascendant",
+		"effects": {
+			"elementalDamagePercent": 30,
+			"element": "earth",
+			"elementalAgainst": {
+				"water": 50,
+				"air": 25,
+				"fire": 25,
+				"earth": 25,
+				"light": 25,
+				"dark": 25,
+				"neutral": 25
+			}
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Mage/verdure-badge.PNG"
+	},
+	{
+		"id": "mage_zephyr",
+		"class": "mage",
+		"name": "Zephyr",
+		"type": "passive",
+		"level": 1,
+		"description": "Obtain the Blessing of Zephyr",
+		"effects": {
+			"elementalDamagePercent": 30,
+			"element": "air",
+			"elementalAgainst": {
+				"earth": 50,
+				"fire": -25,
+				"water": 25,
+				"air": 25,
+				"light": 25,
+				"dark": 25,
+				"neutral": 25
+			}
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Mage/zephyr.png"
+	},
+	{
+		"id": "mage_zephyr_adv",
+		"class": "mage",
+		"name": "Zephyr Ascendant",
+		"type": "passive",
+		"level": 1,
+		"description": "Obtain the Blessing of Zephyr Ascendant",
+		"effects": {
+			"elementalDamagePercent": 30,
+			"element": "air",
+			"elementalAgainst": {
+				"earth": 50,
+				"fire": 25,
+				"water": 25,
+				"air": 25,
+				"light": 25,
+				"dark": 25,
+				"neutral": 25
+			}
+		},
+		"spCost": null,
+		"cooldownSeconds": null,
+		"acquisition": null,
+		"icon": "/Images/Skills/Mage/zephyr-badge.PNG"
+	},
+	{
+		"id": "warrior_berserker",
+		"class": "warrior",
+		"name": "Berserker",
+		"type": "active",
+		"level": 1,
+		"description": "Trade defense for overwhelming offense. Enter a rage that boosts your damage output while making you more vulnerable.",
+		"effects": {
+			"physicalDamagePercent": 20,
+			"physicalDefensePercent": -50,
+			"magicResistancePercent": -50,
+			"durationSeconds": 30
+		},
+		"spCost": 20,
+		"cooldownSeconds": 60,
+		"acquisition": null,
+		"icon": "/Images/Skills/Warrior/Berserker.png"
+	},
+	{
+		"id": "warrior_berserker_adv",
+		"class": "warrior",
+		"name": "Mad Berserker",
+		"type": "active",
+		"level": 1,
+		"description": "Trade defense for overwhelming offense. Enter a maddening rage that drastically boosts your damage output at the cost of severe vulnerability.",
+		"effects": {
+			"physicalDamagePercent": 25,
+			"physicalDefensePercent": -55,
+			"magicResistancePercent": -55,
+			"durationSeconds": 30
+		},
+		"spCost": 30,
+		"cooldownSeconds": 60,
+		"acquisition": null,
+		"icon": "/Images/Skills/Warrior/Mad%20Berserker.png"
+	},
+	{
+		"id": "warrior_fortress",
+		"class": "warrior",
+		"name": "Fortress",
+		"type": "active",
+		"level": 1,
+		"description": "Harden your skin and resolve, radiating an aura of impregnability.",
+		"effects": {
+			"physicalDefensePercent": 10,
+			"magicResistancePercent": 10,
+			"durationSeconds": 30
+		},
+		"spCost": 20,
+		"cooldownSeconds": 60,
+		"acquisition": null,
+		"icon": "/Images/Skills/Warrior/Fortress.png"
+	},
+	{
+		"id": "warrior_fortress_adv",
+		"class": "warrior",
+		"name": "Immovable Fortress",
+		"type": "active",
+		"level": 1,
+		"description": "Harden your skin to stone and your resolve to iron, radiating an aura of absolute impregnability.",
+		"effects": {
+			"physicalDefensePercent": 15,
+			"magicResistancePercent": 15,
+			"durationSeconds": 30
+		},
+		"spCost": 30,
+		"cooldownSeconds": 60,
+		"acquisition": null,
+		"icon": "/Images/Skills/Warrior/Immovable%20Fortress.png"
+	},
+	{
+		"id": "warrior_analysis",
+		"class": "warrior",
+		"name": "Predictive Analysis",
+		"type": "active",
+		"level": 1,
+		"description": "Unveils the probable next action of a target enemy, highlighting their impending skill or movement for a brief period.",
+		"effects": {
+			"accuracyPercent": 15,
+			"evasionPercent": 15,
+			"durationSeconds": 30
+		},
+		"spCost": 20,
+		"cooldownSeconds": 60,
+		"acquisition": null,
+		"icon": "/Images/Skills/Warrior/Predictive%20Analysis.png"
+	},
+	{
+		"id": "warrior_analysis_adv",
+		"class": "warrior",
+		"name": "Complete Analysis",
+		"type": "active",
+		"level": 1,
+		"description": "Performs a quantum-state analysis on a target. The predicted action is highlighted for you and becomes more likely to happen.",
+		"effects": {
+			"accuracyPercent": 20,
+			"evasionPercent": 20,
+			"durationSeconds": 30
+		},
+		"spCost": 30,
+		"cooldownSeconds": 60,
+		"acquisition": null,
+		"icon": "/Images/Skills/Warrior/Complete%20Analysis.png"
+	},
+	{
+		"id": "warrior_mirror",
+		"class": "warrior",
+		"name": "Mirror of Pain",
+		"type": "active",
+		"level": 1,
+		"description": "Creates a mirror link that reflects a portion of damage received back to the attacker.",
+		"effects": {
+			"reflectDamagePercent": 50,
+			"reflectCapPercent": 50,
+			"durationSeconds": 30
+		},
+		"spCost": 20,
+		"cooldownSeconds": 60,
+		"acquisition": null,
+		"icon": "/Images/Skills/Warrior/Mirror%20of%20Pain.png"
+	},
+	{
+		"id": "warrior_mirror_adv",
+		"class": "warrior",
+		"name": "Mirror of Torture",
+		"type": "active",
+		"level": 1,
+		"description": "Creates an advance mirror link that reflects a portion of damage received back to the attacker.",
+		"effects": {
+			"reflectDamagePercent": 50,
+			"reflectCapPercent": 60,
+			"durationSeconds": 30
+		},
+		"spCost": 30,
+		"cooldownSeconds": 60,
+		"acquisition": null,
+		"icon": "/Images/Skills/Warrior/Mirror%20of%20Torture.png"
+	}
+]

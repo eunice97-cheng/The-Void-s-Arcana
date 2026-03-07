@@ -1,0 +1,17 @@
+{
+	"exportedAt": "2025-11-06T00:00:00.000Z",
+	"version": 1,
+	"slot": {
+		"id": 1,
+		"name": "Slot 1",
+		"mode": "free",
+		"ts": null,
+		"meta": {
+			"playerName": "Eunice",
+			"playerClass": "rogue",
+			"level": 1,
+			"avatar": null
+		},
+		"payload": "{\n      \"timestamp\": 0,\n      \"version\": 1,\n      \"character\": {\n        \"id\": \"eunice-dev-19971010-0001\",\n        \"name\": \"Eunice\",\n        \"gender\": \"female\",\n        \"dob\": \"1997-10-10\",\n        \"class\": \"rogue\",\n        \"level\": 1,\n        \"exp\": 0,\n        \"expToNext\": 100,\n        \"currency\": {\n          \"gold\": 100,\n          \"silver\": 100,\n          \"diamonds\": 100\n        },\n        \"personalityTraits\": {\n          \"E\": 5,\n          \"O\": 5\n        },\n        \"stats\": {\n          \"hp\": { \"current\": 175, \"max\": 175 },\n          \"sp\": { \"current\": 175, \"max\": 175 },\n          \"stamina\": { \"current\": 100, \"max\": 100 }\n        },\n        \"attributes\": {\n          \"STR\": 5,\n          \"DEX\": 5,\n          \"INT\": 5,\n          \"CON\": 5,\n          \"WIS\": 5,\n          \"CHA\": 5\n        },\n        \"inventory\": [],\n        \"equipment\": {\n          \"weapon\": null,\n          \"head\": null,\n          \"body\": null,\n          \"accessory\": null\n        },\n        \"playerData\": {\n          \"level\": 1,\n          \"exp\": 0,\n          \"maxExp\": 100,\n          \"hp\": 175,\n          \"maxHp\": 175,\n          \"sp\": 175,\n          \"maxSp\": 175,\n          \"stamina\": 100,\n          \"maxStamina\": 100,\n          \"gold\": 100,\n          \"silver\": 100,\n          \"diamonds\": 100,\n          \"stats\": {\n            \"STR\": 5,\n            \"DEX\": 5,\n            \"INT\": 5,\n            \"CON\": 5,\n            \"WIS\": 5,\n            \"CHA\": 5\n          }\n        },\n        \"quests\": [],\n        \"location\": \"starting-hub\",\n        \"regen\": {\n          \"lastHpAt\": null,\n          \"lastSpAt\": null,\n          \"lastStaminaAt\": null\n        },\n        \"meta\": {\n          \"devData\": true,\n          \"devNote\": \"Development test character — do not delete.\",\n          \"createdBy\": \"assistant\",\n          \"createdAt\": \"2025-11-06T00:00:00.000Z\"\n        }\n      },\n      \"clearedScenes\": [],\n      \"playerData\": {\n        \"hp\": 175,\n        \"maxHp\": 175,\n        \"sp\": 175,\n        \"maxSp\": 175,\n        \"stamina\": 100,\n        \"maxStamina\": 100,\n        \"level\": 1,\n        \"exp\": 0,\n        \"maxExp\": 100,\n        \"gold\": 100,\n        \"silver\": 100,\n        \"diamonds\": 100\n      },\n      \"currentScene\": \"Scene047\",\n      \"activeSlotId\": 1\n    }"
+	}
+}

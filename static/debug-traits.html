@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Personality Traits</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        pre {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #4a9eff;
+        }
+        button {
+            background: #4a9eff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #3a8eef;
+        }
+        .error {
+            color: #ff4a4a;
+        }
+        .success {
+            color: #4aff4a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personality Traits Debugger</h1>
+    
+    <div class="section">
+        <h2>Current localStorage Data</h2>
+        <button onclick="showAllData()">Show All Data</button>
+        <button onclick="showSlot1()">Show Slot 1</button>
+        <button onclick="fixTraits()">Fix Traits Now</button>
+        <pre id="output"></pre>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+        const KEY = 'game_save_slots';
+        const ENCRYPTION_KEY = 'voids-arcana-save-key';
+
+        function decryptPayload(encryptedPayload) {
+            try {
+                // Try to decrypt first
+                const bytes = CryptoJS.AES.decrypt(encryptedPayload, ENCRYPTION_KEY);
+                const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+                return JSON.parse(decrypted);
+            } catch (e) {
+                // If decryption fails, try plain JSON
+                return JSON.parse(encryptedPayload);
+            }
+        }
+
+        function encryptPayload(data) {
+            return CryptoJS.AES.encrypt(JSON.stringify(data), ENCRYPTION_KEY).toString();
+        }
+
+        function showAllData() {
+            const output = document.getElementById('output');
+            const raw = localStorage.getItem(KEY);
+            
+            if (!raw) {
+                output.innerHTML = '<span class="error">No save data found in localStorage!</span>';
+                return;
+            }
+
+            try {
+                const data = JSON.parse(raw);
+                output.innerHTML = '<span class="success">Found save data:</span>\n\n' + 
+                    JSON.stringify(data, null, 2);
+            } catch (e) {
+                output.innerHTML = '<span class="error">Error parsing save data: ' + e.message + '</span>';
+            }
+        }
+
+        function showSlot1() {
+            const output = document.getElementById('output');
+            const raw = localStorage.getItem(KEY);
+            
+            if (!raw) {
+                output.innerHTML = '<span class="error">No save data found!</span>';
+                return;
+            }
+
+            try {
+                const data = JSON.parse(raw);
+                const slot1 = data.slots?.find(s => s.id === 1);
+                
+                if (!slot1) {
+                    output.innerHTML = '<span class="error">Slot 1 not found!</span>\n\n' +
+                        'Available slots:\n' + JSON.stringify(data.slots?.map(s => s.id), null, 2);
+                    return;
+                }
+
+                if (!slot1.payload) {
+                    output.innerHTML = '<span class="error">Slot 1 is empty (no save data)!</span>';
+                    return;
+                }
+
+                // Decrypt the payload
+                let saveData;
+                try {
+                    saveData = decryptPayload(slot1.payload);
+                } catch (e) {
+                    output.innerHTML = '<span class="error">Could not decrypt slot 1 payload: ' + e.message + '</span>';
+                    return;
+                }
+
+                let info = '<span class="success">SLOT 1 DATA:</span>\n\n';
+                info += 'Character Name: ' + saveData.character?.name + '\n';
+                info += 'Character Class: ' + saveData.character?.class + '\n';
+                info += 'Level: ' + saveData.playerData?.level + '\n\n';
+                
+                info += '=== PERSONALITY TRAITS ===\n';
+                info += 'saveData.personality: ' + JSON.stringify(saveData.personality) + '\n';
+                info += 'saveData.character.personalityTraits: ' + JSON.stringify(saveData.character?.personalityTraits) + '\n\n';
+                
+                info += '=== TRAIT HISTORY ===\n';
+                if (saveData.traitHistory) {
+                    info += 'Current totals: ' + JSON.stringify(saveData.traitHistory.current, null, 2) + '\n';
+                    info += 'History entries: ' + (saveData.traitHistory.history?.length || 0) + '\n\n';
+                } else {
+                    info += '<span class="error">No trait history found!</span>\n\n';
+                }
+                
+                info += '=== FULL SAVE DATA ===\n';
+                info += JSON.stringify(saveData, null, 2);
+                
+                output.innerHTML = info;
+            } catch (e) {
+                output.innerHTML = '<span class="error">Error: ' + e.message + '</span>\n' + e.stack;
+            }
+        }
+
+        function fixTraits() {
+            const output = document.getElementById('output');
+            const raw = localStorage.getItem(KEY);
+            
+            if (!raw) {
+                output.innerHTML = '<span class="error">No save data found!</span>';
+                return;
+            }
+
+            try {
+                const data = JSON.parse(raw);
+                const slot1 = data.slots?.find(s => s.id === 1);
+                
+                if (!slot1 || !slot1.payload) {
+                    output.innerHTML = '<span class="error">Slot 1 is empty!</span>';
+                    return;
+                }
+
+                // Decrypt the payload
+                let saveData = decryptPayload(slot1.payload);
+
+                let fixed = false;
+                let changes = [];
+
+                // Fix 1: Move traits from character.personalityTraits to personality
+                if (saveData.character?.personalityTraits && !saveData.personality) {
+                    saveData.personality = saveData.character.personalityTraits;
+                    delete saveData.character.personalityTraits;
+                    fixed = true;
+                    changes.push('Moved traits from character.personalityTraits to personality');
+                }
+
+                // Fix 2: Create trait history if missing
+                if (!saveData.traitHistory && saveData.personality) {
+                    const traits = saveData.personality;
+                    saveData.traitHistory = {
+                        history: [],
+                        current: { E: 0, O: 0, A: 0, C: 0, N: 0 },
+                        breakdown: {
+                            E: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                            O: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                            A: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                            C: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                            N: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 }
+                        }
+                    };
+
+                    // Create synthetic history from existing traits
+                    for (const [trait, value] of Object.entries(traits)) {
+                        if (['E', 'O', 'A', 'C', 'N'].includes(trait) && value > 0) {
+                            saveData.traitHistory.current[trait] = value;
+                            saveData.traitHistory.breakdown[trait].ritual = value;
+                            saveData.traitHistory.history.push({
+                                trait,
+                                amount: value,
+                                source: 'ritual',
+                                timestamp: Date.now(),
+                                description: `Migrated from saved data (${value} points)`
+                            });
+                        }
+                    }
+                    fixed = true;
+                    changes.push('Created trait history with ' + saveData.traitHistory.history.length + ' entries');
+                }
+
+                // Fix 3: Ensure personality field exists
+                if (!saveData.personality) {
+                    saveData.personality = { E: 0, O: 0, A: 0, C: 0, N: 0 };
+                    fixed = true;
+                    changes.push('Created empty personality field');
+                }
+
+                if (fixed) {
+                    // Save back to localStorage (re-encrypt)
+                    slot1.payload = encryptPayload(saveData);
+                    const idx = data.slots.findIndex(s => s.id === 1);
+                    if (idx !== -1) {
+                        data.slots[idx] = slot1;
+                    }
+                    localStorage.setItem(KEY, JSON.stringify(data));
+                    
+                    output.innerHTML = '<span class="success">✓ Fixed!</span>\n\n' +
+                        'Changes made:\n' + changes.join('\n') + '\n\n' +
+                        'Current personality traits:\n' +
+                        JSON.stringify(saveData.personality, null, 2) + '\n\n' +
+                        'Current trait history:\n' +
+                        JSON.stringify(saveData.traitHistory, null, 2);
+                } else {
+                    output.innerHTML = '<span class="success">No fixes needed!</span>\n\n' +
+                        'Current personality traits:\n' +
+                        JSON.stringify(saveData.personality, null, 2);
+                }
+
+                // Reload the page to force re-initialization
+                setTimeout(() => {
+                    if (confirm('Traits fixed! Reload the page now?')) {
+                        window.location.href = '/';
+                    }
+                }, 1000);
+            } catch (e) {
+                output.innerHTML = '<span class="error">Error fixing traits: ' + e.message + '</span>\n' + e.stack;
+            }
+        }
+
+        // Auto-show slot 1 on load
+        window.onload = showSlot1;
+    </script>
+</body>
+</html>

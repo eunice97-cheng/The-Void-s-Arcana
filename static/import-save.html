@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Import Save File</title>
+  <style>
+    body {
+      font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0b0b10 0%, #1a1a2e 100%);
+      color: #e6e6e6;
+      margin: 0;
+      padding: 20px;
+    }
+    #box {
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 12px;
+      background: rgba(15, 15, 25, 0.9);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(123, 97, 255, 0.2);
+    }
+    h2 {
+      margin-top: 0;
+      color: #7b61ff;
+      font-size: 24px;
+    }
+    .file-input-wrapper {
+      margin: 20px 0;
+      padding: 20px;
+      border: 2px dashed #7b61ff;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .file-input-wrapper:hover {
+      background: rgba(123, 97, 255, 0.1);
+      border-color: #9d7fff;
+    }
+    .file-input-wrapper.dragover {
+      background: rgba(123, 97, 255, 0.2);
+      border-color: #b89fff;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .slot-selector {
+      margin: 20px 0;
+    }
+    .slot-selector label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #b0b0b0;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #1a1a2e;
+      color: #e6e6e6;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button {
+      margin-top: 12px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(135deg, #6b46c1 0%, #7b61ff 100%);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(123, 97, 255, 0.4);
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    #status {
+      margin: 20px 0;
+      padding: 15px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .status-error {
+      background: rgba(239, 68, 68, 0.2) !important;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
+    .status-success {
+      background: rgba(34, 197, 94, 0.2) !important;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #86efac;
+    }
+    .file-info {
+      margin: 15px 0;
+      padding: 12px;
+      background: rgba(123, 97, 255, 0.1);
+      border-radius: 6px;
+      font-size: 13px;
+      display: none;
+    }
+    .file-info.visible {
+      display: block;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+    .info-label {
+      color: #b0b0b0;
+    }
+    .info-value {
+      color: #7b61ff;
+      font-weight: 500;
+    }
+    .note {
+      font-size: 12px;
+      margin-top: 20px;
+      opacity: 0.7;
+      text-align: center;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <h2>📦 Import Save File</h2>
+    
+    <div class="file-input-wrapper" id="dropZone">
+      <p style="margin: 0;">📁 Click to select a save file or drag & drop</p>
+      <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.7;">Accepts .json files</p>
+      <input type="file" id="fileInput" accept=".json,application/json" />
+    </div>
+
+    <div class="file-info" id="fileInfo">
+      <div class="info-row">
+        <span class="info-label">File:</span>
+        <span class="info-value" id="fileName">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Player:</span>
+        <span class="info-value" id="playerName">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Class:</span>
+        <span class="info-value" id="playerClass">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Level:</span>
+        <span class="info-value" id="playerLevel">-</span>
+      </div>
+    </div>
+
+    <div class="slot-selector">
+      <label for="slotSelect">Select destination slot:</label>
+      <select id="slotSelect">
+        <option value="1">Slot 1 (Free)</option>
+        <option value="2">Slot 2 (Free)</option>
+        <option value="3">Slot 3 (Locked - Premium)</option>
+        <option value="4">Slot 4 (Locked - Premium)</option>
+        <option value="5">Slot 5 (Locked - Premium)</option>
+        <option value="6">Slot 6 (Locked - Premium)</option>
+      </select>
+    </div>
+
+    <button id="importBtn" disabled>Import to Slot</button>
+
+    <div id="status">Select a file to import</div>
+
+    <button id="openGameBtn" style="display:none; margin-top: 20px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">
+      Open Game
+    </button>
+
+    <p class="note">
+      ⚠️ This will create a backup of your current saves before importing.<br/>
+      The backup will be stored in localStorage with a timestamp.
+    </p>
+  </div>
+
+  <script>
+    /* eslint-disable no-console */
+    const KEY = 'game_save_slots';
+    let fileData = null;
+    let selectedFile = null;
+
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const fileInfo = document.getElementById('fileInfo');
+    const importBtn = document.getElementById('importBtn');
+    const statusDiv = document.getElementById('status');
+    const openGameBtn = document.getElementById('openGameBtn');
+    const slotSelect = document.getElementById('slotSelect');
+
+    // File input handlers
+    dropZone.addEventListener('click', () => fileInput.click());
+    
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length > 0) {
+        handleFile(e.target.files[0]);
+      }
+    });
+
+    // Drag and drop handlers
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      if (e.dataTransfer.files.length > 0) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    async function handleFile(file) {
+      selectedFile = file;
+      try {
+        const text = await file.text();
+        fileData = JSON.parse(text);
+        
+        // Validate basic structure
+        if (!fileData.slot || !fileData.slot.payload) {
+          throw new Error('Invalid save file format: missing slot or payload');
+        }
+
+        // Try to parse the payload to show info
+        let payloadData = null;
+        try {
+          payloadData = JSON.parse(fileData.slot.payload);
+        } catch (e) {
+          // Payload might be encrypted, use metadata instead
+          payloadData = null;
+        }
+
+        // Display file info
+        document.getElementById('fileName').textContent = file.name;
+        document.getElementById('playerName').textContent = 
+          fileData.slot.meta?.playerName || 
+          payloadData?.character?.name || 
+          'Unknown';
+        document.getElementById('playerClass').textContent = 
+          fileData.slot.meta?.playerClass || 
+          payloadData?.character?.class || 
+          'Unknown';
+        document.getElementById('playerLevel').textContent = 
+          fileData.slot.meta?.level || 
+          payloadData?.playerData?.level || 
+          payloadData?.character?.level ||
+          '?';
+
+        fileInfo.classList.add('visible');
+        importBtn.disabled = false;
+        setStatus('File loaded successfully! Select a slot and click Import.', 'success');
+      } catch (error) {
+        console.error('Error reading file:', error);
+        setStatus(`Error reading file: ${error.message}`, 'error');
+        fileInfo.classList.remove('visible');
+        importBtn.disabled = true;
+        fileData = null;
+      }
+    }
+
+    function setStatus(message, type = 'info') {
+      statusDiv.textContent = message;
+      statusDiv.className = '';
+      if (type === 'error') {
+        statusDiv.classList.add('status-error');
+      } else if (type === 'success') {
+        statusDiv.classList.add('status-success');
+      }
+    }
+
+    importBtn.addEventListener('click', async () => {
+      if (!fileData) {
+        setStatus('No file selected', 'error');
+        return;
+      }
+
+      const targetSlotId = parseInt(slotSelect.value);
+      importBtn.disabled = true;
+      setStatus('Importing... Please wait...');
+
+      try {
+        // Create backup
+        const nowTs = Date.now();
+        try {
+          const existing = localStorage.getItem(KEY);
+          if (existing) {
+            localStorage.setItem(`${KEY}_backup_${nowTs}`, existing);
+            console.log('Backup created:', `${KEY}_backup_${nowTs}`);
+          }
+        } catch (e) {
+          console.warn('Failed to create backup:', e);
+        }
+
+        // Load or initialize slots container
+        let data = null;
+        try {
+          data = JSON.parse(localStorage.getItem(KEY));
+        } catch (e) {
+          data = null;
+        }
+
+        if (!data || !Array.isArray(data.slots)) {
+          data = { version: 1, lastUsed: null, slots: [] };
+          for (let i = 1; i <= 6; i++) {
+            data.slots.push({
+              id: i,
+              name: `Slot ${i}`,
+              locked: i > 2,
+              mode: i <= 2 ? 'free' : 'locked',
+              ts: null,
+              meta: null,
+              payload: null
+            });
+          }
+        }
+
+        // Ensure we have enough slots
+        while (data.slots.length < targetSlotId) {
+          const newId = data.slots.length + 1;
+          data.slots.push({
+            id: newId,
+            name: `Slot ${newId}`,
+            locked: true,
+            mode: 'locked',
+            ts: null,
+            meta: null,
+            payload: null
+          });
+        }
+
+        // Find target slot
+        const slotIndex = data.slots.findIndex(s => s.id === targetSlotId);
+        if (slotIndex === -1) {
+          throw new Error(`Could not find slot with id: ${targetSlotId}`);
+        }
+
+        // Check if slot is locked (for premium slots)
+        if (data.slots[slotIndex].locked && data.slots[slotIndex].mode === 'locked') {
+          const confirmed = confirm(
+            'This is a premium slot. Importing will unlock it. Continue?'
+          );
+          if (!confirmed) {
+            setStatus('Import cancelled', 'info');
+            importBtn.disabled = false;
+            return;
+          }
+        }
+
+        // Apply migration to the imported slot data
+        let importData = { ...fileData.slot };
+        try {
+          let payloadData = JSON.parse(importData.payload);
+          
+          // Migrate personality traits if needed
+          if (payloadData.character?.personalityTraits && !payloadData.personality) {
+            console.log('Migrating personality traits during import');
+            payloadData.personality = payloadData.character.personalityTraits;
+            delete payloadData.character.personalityTraits;
+          }
+
+          // Create trait history if missing
+          if (!payloadData.traitHistory && payloadData.personality) {
+            console.log('Creating trait history during import');
+            const history = [];
+            const current = { E: 0, O: 0, A: 0, C: 0, N: 0 };
+            const breakdown = {
+              E: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+              O: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+              A: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+              C: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+              N: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 }
+            };
+
+            ['E', 'O', 'A', 'C', 'N'].forEach(trait => {
+              const value = payloadData.personality[trait] || 0;
+              if (value > 0) {
+                history.push({
+                  trait,
+                  amount: value,
+                  source: 'other',
+                  sourceId: 'import-migration',
+                  timestamp: Date.now(),
+                  description: 'Imported from save without trait history'
+                });
+                current[trait] = value;
+                breakdown[trait].other = value;
+              }
+            });
+
+            payloadData.traitHistory = { history, current, breakdown };
+          }
+
+          // Update version
+          if (!payloadData.version || payloadData.version === 1) {
+            payloadData.version = '1.0.7';
+          }
+
+          importData.payload = JSON.stringify(payloadData);
+        } catch (parseError) {
+          console.warn('Could not parse/migrate payload (may be encrypted):', parseError);
+          // If payload is encrypted, use it as-is and let the game handle migration
+        }
+
+        // Import the slot
+        data.slots[slotIndex] = {
+          id: targetSlotId,
+          name: importData.name || `Slot ${targetSlotId}`,
+          locked: false, // Unlock slot on import
+          mode: importData.mode || 'free',
+          ts: importData.ts || Date.now(),
+          meta: importData.meta || null,
+          payload: importData.payload
+        };
+        
+        data.lastUsed = targetSlotId;
+        localStorage.setItem(KEY, JSON.stringify(data));
+
+        setStatus(
+          `✅ Import successful! Slot ${targetSlotId} updated. Backup: ${KEY}_backup_${nowTs}`,
+          'success'
+        );
+        openGameBtn.style.display = 'block';
+        console.log('Import complete to slot:', targetSlotId);
+      } catch (error) {
+        console.error('Import failed:', error);
+        setStatus(`❌ Import failed: ${error.message}`, 'error');
+        importBtn.disabled = false;
+      }
+    });
+
+    openGameBtn.addEventListener('click', () => {
+      window.location.href = '/game';
+    });
+  </script>
+</body>
+</html>

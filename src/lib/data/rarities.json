@@ -1,0 +1,76 @@
+{
+	"tiers": [
+		{ "stars": 0, "key": "common", "label": "Common", "description": "No extra bonuses" },
+		{ "stars": 1, "key": "uncommon", "label": "Uncommon", "description": "Minor bonus" },
+		{ "stars": 2, "key": "rare", "label": "Rare", "description": "Noticeable bonus" },
+		{ "stars": 3, "key": "epic", "label": "Epic", "description": "Strong bonus" },
+		{ "stars": 4, "key": "legendary", "label": "Legendary", "description": "Very strong bonus" },
+		{ "stars": 5, "key": "mythic", "label": "Mythic", "description": "Unique/very powerful bonus" }
+	],
+
+	"rankE": {
+		"weapon": {
+			"starDistribution": [
+				{ "stars": 1, "chance": 60, "bonus": { "minDamage": 5, "maxDamage": 10 } },
+				{ "stars": 2, "chance": 30, "bonus": { "minDamage": 11, "maxDamage": 15 } },
+				{ "stars": 3, "chance": 10, "bonus": { "minDamage": 16, "maxDamage": 20 } }
+			],
+			"notes": "No 0-star output (E-rank weapons gained from boxes will have at least 1 star). 4★/5★ not available for E rank."
+		},
+
+		"armor": {
+			"starDistribution": [
+				{
+					"stars": 0,
+					"chance": 0,
+					"bonus": {
+						"pDefMin": 0,
+						"pDefMax": 0,
+						"mDefMin": 0,
+						"mDefMax": 0,
+						"hpMin": 0,
+						"hpMax": 0
+					},
+					"label": "No star (common) - normal E-rank"
+				},
+				{
+					"stars": 1,
+					"chance": 60,
+					"bonus": {
+						"pDefMin": 1,
+						"pDefMax": 4,
+						"mDefMin": 1,
+						"mDefMax": 4,
+						"hpMin": 1,
+						"hpMax": 10
+					}
+				},
+				{
+					"stars": 2,
+					"chance": 30,
+					"bonus": {
+						"pDefMin": 4,
+						"pDefMax": 8,
+						"mDefMin": 4,
+						"mDefMax": 8,
+						"hpMin": 11,
+						"hpMax": 20
+					}
+				},
+				{
+					"stars": 3,
+					"chance": 10,
+					"bonus": {
+						"pDefMin": 8,
+						"pDefMax": 12,
+						"mDefMin": 8,
+						"mDefMax": 12,
+						"hpMin": 21,
+						"hpMax": 30
+					}
+				}
+			],
+			"notes": "1★ (60%), 2★ (30%), 3★ (10%) distribution for E-rank armor boxes. 0★/4★/5★ not available."
+		}
+	}
+}

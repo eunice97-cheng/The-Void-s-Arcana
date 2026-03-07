@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fix Trait History</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #fff; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        input { padding: 5px; margin: 5px; width: 60px; }
+        pre { background: #2a2a2a; padding: 15px; border-radius: 5px; overflow-x: auto; max-height: 400px; }
+        .section { margin: 20px 0; padding: 15px; border: 1px solid #444; border-radius: 5px; }
+        .error { color: #ff4444; }
+        .success { color: #44ff44; }
+        .warning { color: #ffaa44; }
+    </style>
+</head>
+<body>
+    <h1>Fix Trait History</h1>
+    
+    <div class="section">
+        <h2>Manual Fix</h2>
+        <p>Enter the CORRECT values for your ritual traits (before the quest):</p>
+        <label>E (Extraversion) from rituals: <input type="number" id="ritualE" value="5" /></label><br/>
+        <label>O (Openness) from rituals: <input type="number" id="ritualO" value="5" /></label><br/>
+        <label>A (Agreeableness) from rituals: <input type="number" id="ritualA" value="0" /></label><br/>
+        <label>C (Conscientiousness) from rituals: <input type="number" id="ritualC" value="0" /></label><br/>
+        <label>N (Neuroticism) from rituals: <input type="number" id="ritualN" value="0" /></label><br/>
+        <br/>
+        <button onclick="fixTraitHistory()">Fix Trait History</button>
+        <pre id="fixResult"></pre>
+    </div>
+
+    <script>
+        const ENCRYPTION_KEY = 'voids-arcana-save-key';
+        
+        function decrypt(encryptedData) {
+            const bytes = CryptoJS.AES.decrypt(encryptedData, ENCRYPTION_KEY);
+            return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        }
+        
+        function encrypt(data) {
+            return CryptoJS.AES.encrypt(JSON.stringify(data), ENCRYPTION_KEY).toString();
+        }
+
+        function fixTraitHistory() {
+            const output = document.getElementById('fixResult');
+            output.textContent = 'Fixing trait history...\n\n';
+
+            try {
+                // Get user input
+                const ritualE = parseInt(document.getElementById('ritualE').value) || 0;
+                const ritualO = parseInt(document.getElementById('ritualO').value) || 0;
+                const ritualA = parseInt(document.getElementById('ritualA').value) || 0;
+                const ritualC = parseInt(document.getElementById('ritualC').value) || 0;
+                const ritualN = parseInt(document.getElementById('ritualN').value) || 0;
+
+                // Load save
+                const raw = localStorage.getItem('game_save_slots');
+                if (!raw) {
+                    output.textContent += '❌ No save data found\n';
+                    return;
+                }
+
+                const data = JSON.parse(raw);
+                const slot1 = data.slots?.find(s => s.id === 1);
+                
+                if (!slot1 || !slot1.payload) {
+                    output.textContent += '❌ Slot 1 empty\n';
+                    return;
+                }
+
+                let saveObj = decrypt(slot1.payload);
+                
+                output.textContent += '✓ Loaded save data\n';
+                output.textContent += `OLD traitHistory.current: ${JSON.stringify(saveObj.traitHistory?.current)}\n\n`;
+
+                // COMPLETELY REBUILD trait history from scratch (REPLACE, don't add)
+                const timestamp = Date.now();
+                const history = [];
+                const current = { E: 0, O: 0, A: 0, C: 0, N: 0 };
+                const breakdown = {
+                    E: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                    O: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                    A: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                    C: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                    N: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 }
+                };
+
+                // Add ritual traits (these are separate individual choices, so break them up)
+                const ritualTraits = { E: ritualE, O: ritualO, A: ritualA, C: ritualC, N: ritualN };
+                let questionNum = 1;
+                for (const [trait, amount] of Object.entries(ritualTraits)) {
+                    // Each ritual trait point is from a separate question
+                    for (let i = 0; i < amount; i++) {
+                        history.push({
+                            trait,
+                            amount: 1,
+                            source: 'choice',
+                            sourceId: `ritual-question-${questionNum}`,
+                            timestamp: timestamp - 1000000 + (questionNum * 1000),
+                            description: `Ritual personality question ${questionNum}`
+                        });
+                        current[trait] = (current[trait] || 0) + 1;
+                        breakdown[trait].choice = (breakdown[trait].choice || 0) + 1;
+                        questionNum++;
+                    }
+                }
+
+                // Add quest reward (O +1) - ONLY if quest was completed
+                if (saveObj.traitHistory?.history?.some(h => h.sourceId === 'quest-glimmering-moss')) {
+                    history.push({
+                        trait: 'O',
+                        amount: 1,
+                        source: 'quest',
+                        sourceId: 'quest-glimmering-moss',
+                        timestamp: timestamp - 500000,
+                        description: 'Completed quest: The Curious Case of the Glimmering Moss'
+                    });
+                    current.O = (current.O || 0) + 1;
+                    breakdown.O.quest = 1;
+                }
+
+                // Update save
+                saveObj.traitHistory = { history, current, breakdown };
+                saveObj.personality = current;
+
+                output.textContent += 'New traitHistory:\n';
+                output.textContent += `  current: ${JSON.stringify(current)}\n`;
+                output.textContent += `  breakdown: ${JSON.stringify(breakdown)}\n`;
+                output.textContent += `  history entries: ${history.length}\n\n`;
+
+                // Save
+                slot1.payload = encrypt(saveObj);
+                slot1.ts = Date.now();
+                localStorage.setItem('game_save_slots', JSON.stringify(data));
+
+                output.textContent += '✅ SUCCESS! Trait history has been fixed.\n';
+                output.textContent += 'Reload the game to see the corrected traits.\n\n';
+                output.textContent += 'Final values:\n';
+                output.textContent += `  E: ${current.E} (${ritualE} from rituals)\n`;
+                output.textContent += `  O: ${current.O} (${ritualO} from rituals + 1 from quest)\n`;
+                output.textContent += `  A: ${current.A}\n`;
+                output.textContent += `  C: ${current.C}\n`;
+                output.textContent += `  N: ${current.N}\n`;
+
+                output.className = 'success';
+
+            } catch (e) {
+                output.textContent += '\n❌ Error: ' + e.message + '\n';
+                output.textContent += e.stack;
+                output.className = 'error';
+            }
+        }
+    </script>
+</body>
+</html>

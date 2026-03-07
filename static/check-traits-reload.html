@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Trait Reload Issue</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #fff; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        pre { background: #2a2a2a; padding: 15px; border-radius: 5px; overflow-x: auto; max-height: 400px; }
+        .section { margin: 20px 0; padding: 15px; border: 1px solid #444; border-radius: 5px; }
+        .error { color: #ff4444; }
+        .success { color: #44ff44; }
+        .warning { color: #ffaa44; }
+    </style>
+</head>
+<body>
+    <h1>Trait Reload Issue Checker</h1>
+    
+    <div class="section">
+        <h2>Current State</h2>
+        <button onclick="checkCurrentState()">Check Current State</button>
+        <pre id="currentState"></pre>
+    </div>
+
+    <div class="section">
+        <h2>Simulation Test</h2>
+        <button onclick="simulateChoiceAndReload()">Simulate Choice + Reload</button>
+        <pre id="testResult"></pre>
+    </div>
+
+    <script>
+        const ENCRYPTION_KEY = 'voids-arcana-save-key';
+        
+        function decrypt(encryptedData) {
+            const bytes = CryptoJS.AES.decrypt(encryptedData, ENCRYPTION_KEY);
+            return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        }
+        
+        function encrypt(data) {
+            return CryptoJS.AES.encrypt(JSON.stringify(data), ENCRYPTION_KEY).toString();
+        }
+
+        function checkCurrentState() {
+            const output = document.getElementById('currentState');
+            try {
+                const raw = localStorage.getItem('game_save_slots');
+                if (!raw) {
+                    output.textContent = 'No save data found';
+                    return;
+                }
+
+                const data = JSON.parse(raw);
+                const slot1 = data.slots?.find(s => s.id === 1);
+                
+                if (!slot1 || !slot1.payload) {
+                    output.textContent = 'Slot 1 empty';
+                    return;
+                }
+
+                // Decrypt the payload
+                let saveObj;
+                try {
+                    saveObj = decrypt(slot1.payload);
+                } catch (err) {
+                    output.textContent = 'Failed to decrypt payload: ' + err.message;
+                    return;
+                }
+
+                const result = {
+                    'Slot timestamp': new Date(slot1.ts).toLocaleString(),
+                    'Character name': saveObj.character?.name,
+                    'Character class': saveObj.character?.class,
+                    'Current scene': saveObj.currentScene,
+                    'Has personality field': !!saveObj.personality,
+                    'Personality values': saveObj.personality,
+                    'Has traitHistory field': !!saveObj.traitHistory,
+                    'TraitHistory current': saveObj.traitHistory?.current,
+                    'TraitHistory entries': saveObj.traitHistory?.history?.length || 0
+                };
+
+                output.textContent = JSON.stringify(result, null, 2);
+                
+                // Detailed trait history
+                if (saveObj.traitHistory?.history) {
+                    output.textContent += '\n\n=== All Trait Changes (oldest to newest) ===\n';
+                    saveObj.traitHistory.history.forEach((h, i) => {
+                        const time = new Date(h.timestamp).toLocaleTimeString();
+                        output.textContent += `${i+1}. [${time}] ${h.trait}: +${h.amount} from ${h.source} - ${h.description || h.sourceId || 'no desc'}\n`;
+                    });
+                }
+                
+                // Check if personality and traitHistory.current match
+                if (saveObj.personality && saveObj.traitHistory?.current) {
+                    output.textContent += '\n\n=== Consistency Check ===\n';
+                    const traits = ['E', 'O', 'A', 'C', 'N'];
+                    let mismatch = false;
+                    traits.forEach(t => {
+                        const p = saveObj.personality[t] || 0;
+                        const h = saveObj.traitHistory.current[t] || 0;
+                        if (p !== h) {
+                            output.textContent += `⚠️ ${t}: personality=${p}, history=${h} (MISMATCH!)\n`;
+                            mismatch = true;
+                        } else {
+                            output.textContent += `✓ ${t}: ${p}\n`;
+                        }
+                    });
+                    
+                    if (mismatch) {
+                        output.textContent += '\n❌ FOUND MISMATCH - personality and traitHistory.current are out of sync!\n';
+                    } else {
+                        output.textContent += '\n✓ personality and traitHistory.current are in sync\n';
+                    }
+                }
+
+            } catch (e) {
+                output.textContent = 'Error: ' + e.message;
+                output.className = 'error';
+            }
+        }
+
+        function simulateChoiceAndReload() {
+            const output = document.getElementById('testResult');
+            output.textContent = 'Running simulation...\n\n';
+
+            try {
+                // 1. Get current state
+                const raw = localStorage.getItem('game_save_slots');
+                if (!raw) {
+                    output.textContent += '❌ No save data to test with\n';
+                    return;
+                }
+
+                const data = JSON.parse(raw);
+                const slot1 = data.slots?.find(s => s.id === 1);
+                
+                if (!slot1 || !slot1.payload) {
+                    output.textContent += '❌ Slot 1 empty\n';
+                    return;
+                }
+
+                let saveObj = decrypt(slot1.payload);
+                
+                output.textContent += '✓ Loaded save data\n';
+                output.textContent += `  Personality BEFORE: ${JSON.stringify(saveObj.personality)}\n`;
+                output.textContent += `  TraitHistory BEFORE: ${JSON.stringify(saveObj.traitHistory?.current)}\n\n`;
+
+                // 2. Simulate adding a trait (like ChoiceScene does)
+                if (!saveObj.personality) saveObj.personality = {};
+                if (!saveObj.traitHistory) {
+                    saveObj.traitHistory = {
+                        history: [],
+                        current: { E: 0, O: 0, A: 0, C: 0, N: 0 },
+                        breakdown: {
+                            E: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                            O: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                            A: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                            C: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 },
+                            N: { ritual: 0, quest: 0, choice: 0, scene: 0, other: 0 }
+                        }
+                    };
+                }
+
+                // Add a test trait
+                const testTrait = 'E';
+                saveObj.personality[testTrait] = (saveObj.personality[testTrait] || 0) + 1;
+                saveObj.traitHistory.current[testTrait] = (saveObj.traitHistory.current[testTrait] || 0) + 1;
+                saveObj.traitHistory.history.push({
+                    trait: testTrait,
+                    amount: 1,
+                    source: 'choice',
+                    sourceId: 'test-scene',
+                    timestamp: Date.now(),
+                    description: 'Test choice'
+                });
+
+                output.textContent += '✓ Simulated trait change (+1 E)\n';
+                output.textContent += `  Personality AFTER: ${JSON.stringify(saveObj.personality)}\n`;
+                output.textContent += `  TraitHistory AFTER: ${JSON.stringify(saveObj.traitHistory.current)}\n\n`;
+
+                // 3. Save it back (encrypted)
+                slot1.payload = encrypt(saveObj);
+                slot1.ts = Date.now();
+                localStorage.setItem('game_save_slots', JSON.stringify(data));
+                
+                output.textContent += '✓ Saved to localStorage (encrypted)\n\n';
+
+                // 4. Simulate reload: clear and reload
+                const savedRaw = localStorage.getItem('game_save_slots');
+                const savedData = JSON.parse(savedRaw);
+                const savedSlot1 = savedData.slots?.find(s => s.id === 1);
+                const reloadedSave = decrypt(savedSlot1.payload);
+
+                output.textContent += '✓ Simulated reload\n';
+                output.textContent += `  Personality RELOADED: ${JSON.stringify(reloadedSave.personality)}\n`;
+                output.textContent += `  TraitHistory RELOADED: ${JSON.stringify(reloadedSave.traitHistory?.current)}\n\n`;
+
+                // 5. Check if they match
+                const personalityMatch = JSON.stringify(saveObj.personality) === JSON.stringify(reloadedSave.personality);
+                const historyMatch = JSON.stringify(saveObj.traitHistory.current) === JSON.stringify(reloadedSave.traitHistory?.current);
+
+                if (personalityMatch && historyMatch) {
+                    output.textContent += '✅ SUCCESS: Traits persisted correctly after reload!\n';
+                    output.className = 'success';
+                } else {
+                    output.textContent += '❌ FAILURE: Traits did NOT persist correctly!\n';
+                    if (!personalityMatch) output.textContent += '  - personality field mismatch\n';
+                    if (!historyMatch) output.textContent += '  - traitHistory.current mismatch\n';
+                    output.className = 'error';
+                }
+
+            } catch (e) {
+                output.textContent += '\n❌ Error: ' + e.message + '\n';
+                output.textContent += e.stack;
+                output.className = 'error';
+            }
+        }
+
+        // Auto-check on load
+        window.onload = () => {
+            checkCurrentState();
+        };
+    </script>
+</body>
+</html>

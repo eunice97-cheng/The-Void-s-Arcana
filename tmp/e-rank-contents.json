@@ -1,0 +1,88 @@
+{
+  "e-rank-physical-weapon-1": [
+    {
+      "id": 1110001,
+      "name": "Short Sword"
+    },
+    {
+      "id": 1113001,
+      "name": "Long Sword"
+    },
+    {
+      "id": 1124001,
+      "name": "Dirk"
+    },
+    {
+      "id": 1133002,
+      "name": "Spear"
+    },
+    {
+      "id": 1141001,
+      "name": "Oakwood Mace"
+    },
+    {
+      "id": 1143001,
+      "name": "Oak Maul"
+    },
+    {
+      "id": 1153001,
+      "name": "Short Bow"
+    },
+    {
+      "id": 1153004,
+      "name": "Crossbow"
+    },
+    {
+      "id": 1171001,
+      "name": "Mallet"
+    }
+  ],
+  "e-rank-magic-weapon-1": [
+    {
+      "id": 1161001,
+      "name": "Bone Scepter"
+    },
+    {
+      "id": 1161003,
+      "name": "Old Wand"
+    },
+    {
+      "id": 1163001,
+      "name": "Old Oak Staff"
+    }
+  ],
+  "e-rank-heavy-armor-1": [
+    {
+      "id": 1232001,
+      "name": "Old Chainmail"
+    },
+    {
+      "id": 1233001,
+      "name": "Old Plated Boots"
+    }
+  ],
+  "e-rank-medium-armor-1": [
+    {
+      "id": 1222001,
+      "name": "Cloth Armor"
+    },
+    {
+      "id": 1222004,
+      "name": "Blackend Cloth Armor"
+    },
+    {
+      "id": 1223001,
+      "name": "Old Leather Boots"
+    }
+  ],
+  "e-rank-magic-armor-1": [
+    {
+      "id": 1242002,
+      "name": "Novice Robe"
+    },
+    {
+      "id": 1243001,
+      "name": "Novice Magic Boots"
+    }
+  ]
+}
