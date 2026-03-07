@@ -67,4 +67,4 @@
   <source src="/Audio/Thunder.mp3" type="audio/mpeg" />
 </audio>
 
-<GeminiDesign primaryLabel="Play as Guest" on:login={handleLogin} on:primary={handlePrimary} on:register={handleRegister} showSpinner={true} enableLogin={false} enableRegister={false} />
+<GeminiDesign primaryLabel="Play as Guest" on:login={handleLogin} on:primary={handlePrimary} on:register={handleRegister} showSpinner={true} enableLogin={true} enableRegister={true} />
