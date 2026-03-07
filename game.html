@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Interface</title>
+    <link rel="stylesheet" href="ui.css">
+    <link rel="stylesheet" href="windows.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="narrative.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- Top Left UI -->
+        <div id="top-left-ui">
+            <div id="avatar-container" title="Click to upload avatar" role="button" aria-label="Upload avatar">
+                <div id="avatar-placeholder"><i class="fas fa-user" aria-hidden="true"></i></div>
+                <img id="avatar" src="#" alt="Player avatar" style="display: none;">
+                <input type="file" id="avatar-upload" accept="image/*">
+            </div>
+            <div id="status-bars">
+                <div class="status-bar">
+                    <div class="status-label">HP</div>
+                    <div class="bar-container">
+                        <div id="hp-bar" class="bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                    <div class="bar-value">85/100</div>
+                </div>
+                <div class="status-bar">
+                    <div class="status-label">SP</div>
+                    <div class="bar-container">
+                        <div id="sp-bar" class="bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                    <div class="bar-value">60/100</div>
+                </div>
+                <div class="status-bar">
+                    <div class="status-label">STAMINA</div>
+                    <div class="bar-container">
+                        <div id="stamina-bar" class="bar" role="progressbar" aria-valuenow="45" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                    <div class="bar-value">45/100</div>
+                </div>
+                <div class="currency-display">
+                    <div class="currency-item">
+                        <i class="fas fa-coins" style="color: gold;" aria-hidden="true"></i>
+                        <span>1,250</span>
+                    </div>
+                    <div class="currency-item">
+                        <i class="fas fa-coins" style="color: silver;" aria-hidden="true"></i>
+                        <span>5,430</span>
+                    </div>
+                    <div class="currency-item">
+                        <i class="fas fa-gem" style="color: #4dc3ff;" aria-hidden="true"></i>
+                        <span>25</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Right UI -->
+        <div id="top-right-ui">
+            <button class="icon-btn" id="audio-toggle" aria-label="Toggle audio"><i class="fas fa-volume-up"
+                    aria-hidden="true"></i></button>
+            <button class="icon-btn" id="save-btn" aria-label="Save game"><i class="fas fa-save"
+                    aria-hidden="true"></i></button>
+            <button class="icon-btn" id="load-btn" aria-label="Load game"><i class="fas fa-folder-open"
+                    aria-hidden="true"></i></button>
+            <button class="icon-btn" id="reset-btn" aria-label="Reset game"><i class="fas fa-redo"
+                    aria-hidden="true"></i></button>
+            <button class="icon-btn" id="import-btn" aria-label="Import game data"><i class="fas fa-file-import"
+                    aria-hidden="true"></i></button>
+            <button class="icon-btn" id="export-btn" aria-label="Export game data"><i class="fas fa-file-export"
+                    aria-hidden="true"></i></button>
+            <button class="icon-btn" id="settings-btn" aria-label="Game settings"><i class="fas fa-cog"
+                    aria-hidden="true"></i></button>
+        </div>
+
+        <!-- Left Side UI -->
+        <div id="left-side-ui">
+            <button class="window-toggle" data-window="adventure-card" aria-label="Adventure card"><i
+                    class="fas fa-scroll" aria-hidden="true"></i></button>
+            <button class="window-toggle" data-window="inventory" aria-label="Equipment and inventory"><i
+                    class="fas fa-vest" aria-hidden="true"></i></button>
+            <button class="window-toggle" data-window="quests" aria-label="Active quests"><i class="fas fa-tasks"
+                    aria-hidden="true"></i></button>
+            <button class="window-toggle" data-window="status" aria-label="Status and skills"><i
+                    class="fas fa-chart-line" aria-hidden="true"></i></button>
+            <button class="window-toggle" data-window="map" aria-label="Map"><i class="fas fa-map"
+                    aria-hidden="true"></i></button>
+            <button class="window-toggle" data-window="achievements" aria-label="Achievements"><i class="fas fa-trophy"
+                    aria-hidden="true"></i></button>
+        </div>
+
+        <button class="icon-btn" id="toggle-ui" aria-label="Toggle UI"><i class="fas fa-eye"
+                aria-hidden="true"></i></button>
+
+        <!-- Bottom Elements -->
+        <div id="exp-bar-container">
+            <div id="exp-info">
+                <span>Level 15</span>
+                <span>1,250/2,000 XP</span>
+            </div>
+            <div id="exp-bar">
+                <div id="exp-progress" role="progressbar" aria-valuenow="1250" aria-valuemin="0" aria-valuemax="2000">
+                </div>
+            </div>
+        </div>
+
+        <button class="icon-btn" id="game-info-btn" aria-label="Game information"><i class="fas fa-info-circle"
+                aria-hidden="true"></i></button>
+
+        <div id="time-display" aria-label="Current Malaysia time">
+            <div id="current-date" aria-label="Current date"></div>
+            <div id="current-time" aria-label="Current time"></div>
+        </div>
+
+        <!-- Game Info Panel -->
+        <div id="game-info-panel" aria-hidden="true">
+            <h3>Game Information</h3>
+            <p>Version: 1.0.2</p>
+            <p>Play Time: 15h 32m</p>
+            <p>Last Saved: 2 hours ago</p>
+            <p>Game ID: #A7B2C9</p>
+        </div>
+
+
+        <!-- Windows -->
+        <div id="adventure-card" class="window">
+            <div class="window-header">
+                <h2>Adventure Card</h2>
+                <button class="close-window" aria-label="Close Adventure Card">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="window-content">
+                <p>Name: [player's name]</p>
+                <p>Level: [player's Level]</p>
+                <p>Class: [player's class]</p>
+                <p>Rank: [player's rank]</p>
+                <div class="separator"></div>
+                <p>Quest Completed: </p>
+                <p>Dungeons Explored: </p>
+            </div>
+        </div>
+
+        <div id="inventory" class="window">
+            <div class="window-header">
+                <h2>Equipment & Inventory</h2>
+                <button class="close-window" aria-label="Close Inventory">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="window-content">
+                <p>Equipped items:</p>
+                <ul>
+                    <li>Weapon: Iron Sword</li>
+                    <li>Armor: Leather Chestplate</li>
+                    <li>Helmet: Traveler's Hat</li>
+                    <li>Boots: Sturdy Boots</li>
+                </ul>
+                <p>Inventory:</p>
+                <ul>
+                    <li>Health Potion x5</li>
+                    <li>Mana Potion x3</li>
+                    <li>Rope x1</li>
+                    <li>Torch x2</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="quests" class="window">
+            <div class="window-header">
+                <h2>Active Quests</h2>
+                <button class="close-window" aria-label="Close Quests">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="window-content">
+                <p>Main Quest:</p>
+                <ul>
+                    <li>Find the Lost Artifact (In Progress)</li>
+                    <li>Speak to the Elder in Riverwood</li>
+                </ul>
+                <p>Side Quests:</p>
+                <ul>
+                    <li>Clear the Bandit Camp</li>
+                    <li>Deliver the Package to Blacksmith</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="status" class="window">
+            <div class="window-header">
+                <h2>Status & Skills</h2>
+                <button class="close-window" aria-label="Close Status">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="window-content">
+                <p>Attributes:</p>
+                <ul>
+                    <li>Strength: 12</li>
+                    <li>Dexterity: 14</li>
+                    <li>Intelligence: 10</li>
+                    <li>Constitution: 13</li>
+                </ul>
+                <p>Skills:</p>
+                <ul>
+                    <li>Swordsmanship: Level 5</li>
+                    <li>Archery: Level 3</li>
+                    <li>Stealth: Level 4</li>
+                    <li>Lockpicking: Level 2</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="map" class="window">
+            <div class="window-header">
+                <h2>Map</h2>
+                <button class="close-window" aria-label="Close Map">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="window-content">
+                <div id="map-placeholder">
+                    <p>World Map</p>
+                    <div class="mini-map">
+                        <div class="map-grid">
+                            <div class="map-tile forest"></div>
+                            <div class="map-tile forest"></div>
+                            <div class="map-tile mountain"></div>
+                            <div class="map-tile village"></div>
+                            <div class="map-tile forest"></div>
+                            <div class="map-tile water"></div>
+                            <div class="map-tile forest"></div>
+                            <div class="map-tile road"></div>
+                            <div class="player-position"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="achievements" class="window">
+            <div class="window-header">
+                <h2>Achievements</h2>
+                <button class="close-window" aria-label="Close Achievements">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="window-content">
+                <p>Completed:</p>
+                <ul>
+                    <li>First Steps - Started your journey</li>
+                    <li>Monster Slayer - Defeat 10 monsters</li>
+                    <li>Explorer - Visit 5 different locations</li>
+                </ul>
+                <p>In Progress:</p>
+                <ul>
+                    <li>Wealthy - Collect 1000 gold (650/1000)</li>
+                    <li>Skill Master - Reach level 10 in any skill</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" aria-hidden="true">
+            <div id="settings-content">
+                <div id="settings-header">
+                    <h2>Game Settings</h2>
+                    <button id="close-settings" aria-label="Close settings"><i class="fas fa-times"
+                            aria-hidden="true"></i></button>
+                </div>
+
+                <div class="setting-group">
+                    <h3>Audio</h3>
+                    <div class="setting-option">
+                        <label for="master-volume">Master Volume:</label>
+                        <input type="range" id="master-volume" class="volume-slider" min="0" max="100" value="80"
+                            aria-label="Master volume">
+                        <span id="volume-value">80%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Tooltip -->
+        <div id="custom-tooltip" aria-hidden="true"></div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-indicator" class="hidden" aria-hidden="true">
+            <div class="loading-spinner"></div>
+            <span>Loading...</span>
+        </div>
+    </div>
+
+    <!-- Narrative Mode Container -->
+    <div id="narrative-container" class="narrative-hidden">
+        <div id="narrative-text"></div>
+        <div id="narrative-controls">
+            <button id="narrative-back">Back</button>
+            <button id="narrative-continue">Continue</button>
+        </div>
+    </div>
+
+    <script src="core.js"></script>
+    <script src="ui.js"></script>
+    <script src="windows.js"></script>
+    <script src="save-manager.js"></script>
+    <script src="narrative.js"></script>
+    <script>
+        // Initialize game state
+        const gameState = {
+            character: {},
+            playerData: {
+                level: 1,
+                exp: 0,
+                maxExp: 100,
+                hp: 100,
+                maxHp: 100,
+                sp: 100,
+                maxSp: 100,
+                stamina: 100,
+                maxStamina: 100,
+                gold: 0,
+                silver: 0,
+                diamonds: 0
+            },
+            audioEnabled: true,
+            currentScene: 'game'
+        };
+
+        // Load saved game on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            if (saveManager.loadGame()) {
+                console.log('Loaded saved game');
+            } else {
+                console.log('No save found, using default state');
+            }
+
+            // Update UI with current data
+            if (typeof updateGameUI === 'function') {
+                updateGameUI();
+            }
+        });
+
+        // Basic UI update function if missing
+        function updateGameUI() {
+            // Update UI elements with gameState data
+            const hpBar = document.getElementById('hp-bar');
+            const spBar = document.getElementById('sp-bar');
+            const staminaBar = document.getElementById('stamina-bar');
+
+            if (hpBar && gameState.playerData) {
+                hpBar.style.width = `${gameState.playerData.hp}%`;
+            }
+            // Add more UI updates as needed
+        }
+    </script>
+</body>
+
+</html>

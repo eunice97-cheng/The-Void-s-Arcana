@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Void's Arcana - Prelude</title>
+
+    <link rel="stylesheet" href="prelude.css">
+    <link rel="stylesheet" href="ui.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <div id="prelude-container">
+        <div id="prelude-background"></div>
+
+        <!-- Reused Top Right Buttons -->
+        <div id="top-right-ui">
+            <button class="icon-btn" id="audio-toggle" aria-label="Toggle audio">
+                <i class="fas fa-volume-up" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <!-- Story Content -->
+        <div id="story-container">
+            <!-- Page 1 -->
+            <div class="story-page active" id="page-1">
+                <h2 class="story-title">The Prelude</h2>
+                <div class="story-text">
+                    <p>Welcome, Adventurer, to the Land of Ashen Hearth.
+                    </p>
+                    <p>Once, our world knew an age of golden light and whispered legends. Now, we live in the long
+                        shadow it left behind.
+                    </p>
+                    <p>From the desolate, wind-scarred reaches of the far north, a blight was born—a silent, creeping
+                        darkness that twisted the very soul of the land.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="story-page" id="page-2">
+                <h2 class="story-title">The Blight</h2>
+                <div class="story-text">
+                    <p>It did not march with armies, but seeped into the soil and the spirit, a corrupting tide that
+                        turned beast into monster and man into puppet.
+                    </p>
+                    <p>The earth withered where it walked, and hope itself grew faint.
+                    </p>
+                    <p>This primordial evil, this unspeakable hunger from a place we now dare only name in hushed
+                        tones—the Umbral Cradle—sought to devour all of Ashen Hearth.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Page 3 -->
+            <div class="story-page" id="page-3">
+                <h2 class="story-title">The Sacrifice</h2>
+                <div class="story-text">
+                    <p>In that desperate hour, heroes of forgotten names rose. They fought not for glory, but for embers
+                        in the overwhelming night.
+                    </p>
+                    <p>Their sacrifice was absolute, a price paid in blood and memory, and with their final breath, they
+                        cast the darkness back into its slumber.
+                    </p>
+                    <p>The land began to heal, and for generations, the horrors faded into myth.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Page 4 -->
+            <div class="story-page" id="page-4">
+                <h2 class="story-title">The Awakening</h2>
+                <div class="story-text">
+                    <p>But legends have a way of forgetting their own truth.
+                    </p>
+                    <p>The darkness was never destroyed. It was merely… waiting. Patient. Festering in the deep, silent
+                        places of the world.
+                    </p>
+                    <p>Now, a new chill grips the air. The shadows lengthen with malicious intent, and the corrupted
+                        once
+                        again stir in the wilds. The Umbral Cradle stirs from its long repose, its ancient malice
+                        reaching
+                        out once more to engulf Ashen Hearth in a final, eternal terror.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Indicators -->
+        <div id="page-indicators">
+            <div class="page-dot active" data-page="1"></div>
+            <div class="page-dot" data-page="2"></div>
+            <div class="page-dot" data-page="3"></div>
+            <div class="page-dot" data-page="4"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div id="navigation">
+            <button class="nav-btn" id="back-btn">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button class="nav-btn" id="continue-btn">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="prelude.js"></script>
+
+</body>
+
+</html>

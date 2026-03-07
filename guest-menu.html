@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Void's Arcana - Guest Menu</title>
+    <link rel="stylesheet" href="guest-menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="guest-container">
+        <div id="guest-background"></div>
+        
+        <div id="guest-header">
+            <h1>Continue Your Journey</h1>
+            <p>As a guest, your progress is saved locally to your device</p>
+        </div>
+        
+        <div id="guest-options">
+            <div class="option-card" id="continue-option">
+                <div class="option-icon">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <h2>Continue</h2>
+                <p>Resume your adventure from where you left off</p>
+                <div class="option-actions">
+                    <button class="action-btn" id="load-btn">
+                        <i class="fas fa-folder-open"></i>
+                        Load Save
+                    </button>
+                    <button class="action-btn" id="import-btn">
+                        <i class="fas fa-file-import"></i>
+                        Import Save
+                    </button>
+                </div>
+            </div>
+            
+            <div class="option-card" id="newgame-option">
+                <div class="option-icon">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+                <h2>New Game</h2>
+                <p>Begin a new adventure in the world of Ashen Hearth</p>
+                <button class="action-btn primary" id="newgame-btn">
+                    <i class="fas fa-dice"></i>
+                    Start New Game
+                </button>
+            </div>
+        </div>
+        
+        <div id="back-container">
+            <button id="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Main Menu
+            </button>
+        </div>
+        
+        <div id="save-status">
+            <p id="save-info">No saved game detected</p>
+        </div>
+        
+        <!-- Import Modal -->
+        <div id="import-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Import Save File</h2>
+                    <button id="close-import"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <p>Select a saved game file to import:</p>
+                    <input type="file" id="import-file" accept=".json">
+                    <div id="import-result"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirm-import" disabled>Import Save</button>
+                    <button id="cancel-import">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="guest-menu.js"></script>
+</body>
+</html>

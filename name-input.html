@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Void's Arcana - Name Input</title>
+    <link rel="stylesheet" href="name-input.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="name-input-container">
+        <div id="name-input-background"></div>
+
+        <div id="name-input-content">
+            <h2 id="name-input-title">ENTER YOUR NAME</h2>
+            <input type="text" id="name-input-field" placeholder="Your name..." maxlength="20">
+
+            <div id="name-input-rules">
+                <div class="rule-item">
+                    <span class="rule-icon">📏</span>
+                    <span class="rule-text">Max 12 characters</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">🔤</span>
+                    <span class="rule-text">Letters and numbers only, no symbols</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">⚡</span>
+                    <span class="rule-text">Case sensitive</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">⚠️</span>
+                    <span class="rule-text">Cannot be changed later</span>
+                </div>
+            </div>
+
+            <div id="name-input-controls">
+                <button class="name-input-btn" id="name-input-continue">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="name-input.js"></script>
+</body>
+
+</html>
