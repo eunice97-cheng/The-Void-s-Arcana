@@ -3,8 +3,6 @@
   import { supabase } from '$lib/supabaseClient';
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
-  import { saveSlotsManager } from '$lib/stores/saveSlotsManager';
-
   let email = '';
   let password = '';
   let loading = false;
@@ -21,22 +19,9 @@
     loading = true;
     error = '';
     const { error: authErr } = await supabase.auth.signInWithPassword({ email, password });
-    if (authErr) { error = authErr.message; loading = false; return; }
-
-    // Try to restore cloud save into local storage
-    const result = await saveSlotsManager.downloadFromCloud();
     loading = false;
-    if (result.success) {
-      // Cloud save found — load the last used slot into gameState then enter game
-      const lastUsed = saveSlotsManager.getLastUsed();
-      if (lastUsed) {
-        saveSlotsManager.loadFromSlot(lastUsed);
-      }
-      goto('/game');
-    } else {
-      // No cloud save yet — start fresh
-      goto('/prelude');
-    }
+    if (authErr) { error = authErr.message; return; }
+    goto('/landing');
   }
 
   function handleKeydown(e) {
