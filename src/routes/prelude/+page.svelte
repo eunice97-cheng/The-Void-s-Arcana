@@ -11,40 +11,41 @@
 
 	const pages = [1, 2, 3, 4];
 	let audio;
+	let audioUnlocked = false;
 
 	$: audioEnabled = $audioSettings?.enabled ?? true;
 	$: bgmMultiplier = ($audioSettings?.bgmVolume ?? 50) / 100;
 	$: sfxMultiplier = ($audioSettings?.sfxVolume ?? 50) / 100;
 
-	$: if (audio) {
+	$: if (audio && audioUnlocked) {
 		audio.volume = audioEnabled ? 1.0 * bgmMultiplier : 0;
-		if (audioEnabled && audio.paused) audio.play().catch(() => {});
 		if (!audioEnabled && !audio.paused) audio.pause();
+		if (audioEnabled && audio.paused) audio.play().catch(() => {});
+	} else if (audio) {
+		audio.volume = audioEnabled ? 1.0 * bgmMultiplier : 0;
 	}
 
 	onMount(() => {
 		animateTextOnPage(1);
 		setTimeout(() => (showSpinner = false), 900);
 
-		let handleInteraction;
+		let unlock;
 
 		if (audio) {
-			audio.volume = 1.0 * bgmMultiplier;
+			audio.volume = audioEnabled ? bgmMultiplier : 0;
 
-			const playAudio = () => {
-				audio.play().catch(() => {});
-			};
-
-			playAudio();
-
-			// Fallback: browsers block autoplay on HTTPS until user interaction
-			handleInteraction = () => {
-				playAudio();
-				document.removeEventListener('click', handleInteraction);
-				document.removeEventListener('keydown', handleInteraction);
-			};
-			document.addEventListener('click', handleInteraction);
-			document.addEventListener('keydown', handleInteraction);
+			audio.play().then(() => {
+				audioUnlocked = true;
+			}).catch(() => {
+				unlock = () => {
+					document.removeEventListener('click', unlock);
+					document.removeEventListener('keydown', unlock);
+					if (!audioEnabled) { audioUnlocked = true; return; }
+					audio.play().then(() => { audioUnlocked = true; }).catch(() => {});
+				};
+				document.addEventListener('click', unlock);
+				document.addEventListener('keydown', unlock);
+			});
 		}
 
 		return () => {
@@ -52,9 +53,9 @@
 				audio.pause();
 				audio.currentTime = 0;
 			}
-			if (handleInteraction) {
-				document.removeEventListener('click', handleInteraction);
-				document.removeEventListener('keydown', handleInteraction);
+			if (unlock) {
+				document.removeEventListener('click', unlock);
+				document.removeEventListener('keydown', unlock);
 			}
 		};
 	});
