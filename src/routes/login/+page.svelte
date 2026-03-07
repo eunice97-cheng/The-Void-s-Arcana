@@ -11,9 +11,9 @@
   let error = '';
 
   onMount(async () => {
-    // Already logged in → skip to game
+    // Already logged in → skip to landing
     const { data } = await supabase.auth.getUser();
-    if (data.user) goto('/prelude');
+    if (data.user) goto('/landing');
   });
 
   async function handleLogin() {
@@ -27,7 +27,11 @@
     const result = await saveSlotsManager.downloadFromCloud();
     loading = false;
     if (result.success) {
-      // Cloud save found — go to game (SaveSlotsModal will let them pick a slot)
+      // Cloud save found — load the last used slot into gameState then enter game
+      const lastUsed = saveSlotsManager.getLastUsed();
+      if (lastUsed) {
+        saveSlotsManager.loadFromSlot(lastUsed);
+      }
       goto('/game');
     } else {
       // No cloud save yet — start fresh
