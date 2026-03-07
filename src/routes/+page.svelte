@@ -3,6 +3,7 @@
   import GeminiDesign from '$lib/components/GeminiDesign.svelte';
   import { onMount } from 'svelte';
   import { audioSettings } from '$lib/stores/gameState';
+  import { supabase } from '$lib/supabaseClient';
 
   function handlePrimary() {
     goto('/prelude');
@@ -22,7 +23,11 @@
       audio.volume = 1.0 * bgmMultiplier;
   }
 
-  onMount(() => {
+  onMount(async () => {
+    // Returning users skip the prelude and go straight to the menu
+    const { data } = await supabase.auth.getUser();
+    if (data.user) { goto('/landing'); return; }
+
     let handleInteraction;
 
     if (audio) {

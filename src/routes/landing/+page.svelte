@@ -4,16 +4,44 @@
   import { onMount } from 'svelte';
   import { audioSettings } from '$lib/stores/gameState';
   import { supabase } from '$lib/supabaseClient';
+  import { saveSlotsManager } from '$lib/stores/saveSlotsManager';
 
   let user = null;
   let authChecked = false;
+  let hasSave = false;
+  let loadingGame = false;
 
   $: isLoggedIn = !!user;
-  $: primaryLabel = isLoggedIn ? 'Continue Adventure' : 'Play as Guest';
+  $: primaryLabel = loadingGame
+    ? 'Loading…'
+    : isLoggedIn
+      ? hasSave ? 'Continue Adventure' : 'Start New Adventure'
+      : 'Play as Guest';
 
-  function handlePrimary() {
+  async function handlePrimary() {
     if (isLoggedIn) {
-      goto('/game');
+      loadingGame = true;
+      // Try local save first
+      const lastUsed = saveSlotsManager.getLastUsed();
+      if (lastUsed) {
+        const slot = saveSlotsManager.getSlot(lastUsed);
+        if (slot && slot.payload) {
+          saveSlotsManager.loadFromSlot(lastUsed);
+          goto('/game');
+          return;
+        }
+      }
+      // No local save — try cloud
+      const result = await saveSlotsManager.downloadFromCloud();
+      if (result.success) {
+        const lu = saveSlotsManager.getLastUsed();
+        if (lu) saveSlotsManager.loadFromSlot(lu);
+        goto('/game');
+      } else {
+        // New account with no save — create a character
+        goto('/guest');
+      }
+      loadingGame = false;
     } else {
       goto('/guest');
     }
@@ -42,6 +70,7 @@
     const { data } = await supabase.auth.getUser();
     user = data.user;
     authChecked = true;
+    if (user) hasSave = saveSlotsManager.hasAnySaved();
 
     supabase.auth.onAuthStateChange((_event, session) => {
       user = session?.user ?? null;

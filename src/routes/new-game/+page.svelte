@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { gameState, audioSettings } from '$lib/stores/gameState';
 	import { saveManager } from '$lib/stores/saveManager';
+	import { supabase } from '$lib/supabaseClient';
 	import MusicToggle from '$lib/components/ui/MusicToggle.svelte';
 	import LoadingSpinner from '$lib/components/ui/LoadingSpinner.svelte';
 
@@ -230,7 +231,7 @@
 			<i class="fas fa-play"></i>
 			Begin Adventure
 		</button>
-		<button id="back-to-guest" on:click={() => goto('/guest')}>
+		<button id="back-to-guest" on:click={async () => { const { data } = await supabase.auth.getUser(); goto(data.user ? '/landing' : '/guest'); }}>
 			<i class="fas fa-arrow-left"></i>
 			Back
 		</button>
