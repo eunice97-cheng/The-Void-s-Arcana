@@ -67,9 +67,12 @@
   }
 
   let audio;
+  $: audioEnabled = $audioSettings?.enabled ?? true;
   $: bgmMultiplier = ($audioSettings?.bgmVolume ?? 50) / 100;
   $: if (audio) {
-      audio.volume = 1.0 * bgmMultiplier;
+      audio.volume = audioEnabled ? 1.0 * bgmMultiplier : 0;
+      if (audioEnabled && audio.paused) audio.play().catch(() => {});
+      if (!audioEnabled && !audio.paused) audio.pause();
   }
 
   onMount(async () => {
@@ -155,7 +158,7 @@
   .user-bar {
     position: fixed;
     top: 1rem;
-    right: 1rem;
+    left: 1rem;
     z-index: 100;
     display: flex;
     align-items: center;
