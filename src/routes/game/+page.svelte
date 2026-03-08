@@ -150,7 +150,7 @@ import FreeModeHub from '$lib/components/FreeModeHub.svelte';
 	function unlockAudio() {
 		// Create and play silent audio on user interaction
 		const silentAudio = new Audio();
-		silentAudio.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAZGF0YQ';
+		silentAudio.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=';
 		silentAudio.volume = 0.01;
 		
 		silentAudio.play()

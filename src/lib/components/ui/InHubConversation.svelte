@@ -28,7 +28,7 @@
 	function onPortraitError(e) {
 		try {
 			/** @type {any} */
-			(e.currentTarget).src = '/Images/NPC/npc-berg.PNG';
+			(e.currentTarget).src = '/Images/NPC/npc-berg.png';
 		} catch (err) {
 			/* ignore */
 		}

@@ -190,7 +190,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/009.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"A perfect fit I see. You must be famished after everything that's happened. Don't be shy - eat your fill. The food is meant to be enjoyed.",
@@ -247,7 +247,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/012.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"I am Alexa. It's a pleasure to properly make your acquaintance. The sea brought you to me without a name. What would you have me call you?",
@@ -287,7 +287,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/014.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'Let me make sure I understand... You washed up on a deserted island with no memory of your past, then risked everything to swim here when you spotted land in the distance. The sea nearly claimed you, but you reached our shore just in time. Is that right?',
@@ -310,7 +310,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/015.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Twice the ocean tried to claim you, and twice it failed. Fate rarely intervenes so obviously. You are either incredibly lucky, or you are here for a purpose. I believe it's the latter.",
@@ -332,7 +332,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/016.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'Yes, but... we can ponder fate another time. For now, you cannot go on without a name. Would you like to choose one for yourself, or shall I suggest one?',
@@ -354,7 +354,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/017.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText: "[player name]... that's a good name.",
 
@@ -376,7 +376,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/018.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText: 'Well [player name], now that you got a name, come with me.',
 
@@ -398,7 +398,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/019.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Well, here we are. This is The Pier Light. Old Berg runs the place, and his wife always keeps the rooms clean and the linens dry. You'll get a proper night's sleep here.",
@@ -421,7 +421,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/020.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Oh, the Crab and Claw? The stew's the best in the cove, I'll grant you that. But you wouldn't want to bed down there. The singing and shouting from the common room doesn't stop 'til the last drunkard stumbles out. You'd get more sleep on the beach.",
@@ -444,7 +444,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/021.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Oh, don't you worry about that for a second. Berg's got a soft spot for weary travelers. I'll have a word with him.",
@@ -467,7 +467,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/022.mp3',
 
-		npcPortrait: '/Images/NPC/npc-berg.PNG',
+		npcPortrait: '/Images/NPC/npc-berg.png',
 
 		npcText:
 			"Well, look what the tide washed in! Alexa, my dear, you've brought a guest. Ah, I heard the rumors! The one who got washed in by the tide, literally! Welcome, welcome to The Pier Light.",
@@ -490,7 +490,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/023.mp3',
 
-		npcPortrait: '/Images/NPC/npc-berg.PNG',
+		npcPortrait: '/Images/NPC/npc-berg.png',
 
 		npcText:
 			'Nice to meet you too, It seems our dear Alexa already got you clothed and fed. I got a room ready too, just in case. You can rest easy here.',
@@ -513,7 +513,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/024.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"(Chime in quickly) Just what I have in mind. I am sure dear Old Berg won't mind sparing a room for a coinless strander for a few days.",
@@ -537,7 +537,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/025.mp3',
 
-		npcPortrait: '/Images/NPC/npc-berg.PNG',
+		npcPortrait: '/Images/NPC/npc-berg.png',
 
 		npcText:
 			"Of course you don't need to pay right now! How can I expect a castaway to have coin? And how could I refuse Alexa's request?",
@@ -560,7 +560,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/026.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'Well, speaking of making a living. I have the perfect idea. Will you be interested in becoming an adventurer? At least until you got your memory back.',
@@ -583,7 +583,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/027.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'Good question, but the answer will be a long one. Come with me to the Guild Hall and see for yourself.',
@@ -606,7 +606,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/028.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Welcome to the Guild Hall of Mirror's Repose. Sorry for not mentioning this before, but I am the Guild Master here.",
@@ -629,7 +629,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/029.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'Yes I am. In short, a guild is an establishment that connects adventurers with clients who need various tasks done. Of course, they are ranked by difficulty and danger. It is our job to serve as a liaison between the two parties.',
@@ -652,7 +652,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/030.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Adventurers receive compensation based on the task's difficulty. Simple errands might pay a few coins, while dangerous quests could yield substantial rewards. As you complete more tasks, you'll gain experience and can take on higher-ranked quests.",
@@ -675,7 +675,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/031.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'Yes indeed. There are same establishments in most other towns as well and we are all connected through an information network, so adventurers can take jobs from other towns too. This opens up a world of opportunities for you to explore and earn a living.',
@@ -698,7 +698,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/032.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText: 'What do you think? Would you like to register as an adventurer right now?',
 
@@ -720,7 +720,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/033.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'Wonderful! But before we proceed with your registration, you will need to go through an initiate ritual.',
@@ -743,7 +743,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/034.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'Sorry to bring you down to our guild basement. This is Alexi. As you can see, she is my sister. She will be conducting the ritual.',
@@ -766,7 +766,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/035.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText: 'I will be waiting upstairs. Come meet me once you are done.',
 
@@ -788,7 +788,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/036.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexi.PNG',
+		npcPortrait: '/Images/NPC/npc-alexi.png',
 
 		npcText:
 			"Close your mouth, you'll catch flies. The real shock will come later. Now, over here.",
@@ -811,7 +811,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/037.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexi.PNG',
+		npcPortrait: '/Images/NPC/npc-alexi.png',
 
 		npcText:
 			"Alright, don't make a fuss. I need a bit of your blood for this. A little prick won't hurt. You can ask questions later.",
@@ -1142,7 +1142,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/040.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexi.PNG',
+		npcPortrait: '/Images/NPC/npc-alexi.png',
 
 		npcText:
 			"Finally. We're done. Take this (she thrust the vial of blood into your hand) to Alexa. She's upstairs. Don't keep her waiting.",
@@ -1165,7 +1165,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/041.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexi.PNG',
+		npcPortrait: '/Images/NPC/npc-alexi.png',
 
 		npcText:
 			'Hey! Just a word of advice, consider this an apology for having to put up with my attitude. Your path ahead will be a bumpy one. Stay true to yourself and trust your instincts. Trust those who is worthy of your trust. Good luck out there.',
@@ -1188,7 +1188,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/042.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'How did it go down there? Alexi can be a bit... abrasive. But she means well, in her own way. Let me apologize on her behalf.',
@@ -1211,7 +1211,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/043.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Come, let's do what we came here for. The last step of your initiation awaits. Follow me to the uppermost floor.",
@@ -1234,7 +1234,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/044.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			'This is a powerful piece of an artifact. It will reveal and unlock your potential as an adventurer. Are you ready?',
@@ -1303,7 +1303,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/047.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Congratulations, [player name]. You have completed your initiation as an adventurer. This card now holds your adventurer's license. Keep it safe, as it will be your key to accepting quests and earning a living.",
@@ -1329,7 +1329,7 @@ export const gameScenes = [
 
 		audio: '/Audio/Scenes/048.mp3',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"If you have any questions about being an adventurer or need guidance, don't hesitate to come to me. Just talk to the receptionist at the Guild Hall if I am not around. You should check out the town as well for some supplies before taking on your first quest.",
@@ -1350,7 +1350,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"How are you, [player name]? I heard you've been a big help lately.",
@@ -1373,7 +1373,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Oh, that reminds me. I have something I've been meaning to give you.",
@@ -1396,7 +1396,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"A map of the region. I thought it might help you on your travels.",
@@ -1419,7 +1419,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Oh, wait a second. Who said anything about it being free?",
@@ -1442,7 +1442,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"(A polite, knowing laugh escapes her) Alexi is right. It is fun to tease you. Tell you what—I will let you have it for free if you do me a favor.",
@@ -1465,7 +1465,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"I need to visit some places outside of the town and you will be my escort. It's not dangerous, but it will be a perfect chance to show you around the area.",
@@ -1488,7 +1488,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"More reason for you not to refuse. Here is the map and we are leaving right away.",
@@ -1562,7 +1562,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Allow me to explain.",
@@ -1587,7 +1587,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"This is where we are, the Mirror's Repose Town in the southwest of Aeleris Region. There is a city in this region and a few towns and villages. We are heading to Sandy Bay which is east from here.",
@@ -1627,7 +1627,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"This is Goldenseed Valley. This farming village is very close to our town. The scenery here is beautiful at sunset. Too bad we aren't going to be stopping here today.",
@@ -1667,7 +1667,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Wake up [player name]! We are here.",
@@ -1690,7 +1690,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Sandy Bay of course.",
@@ -1713,7 +1713,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Come, let us head to the Guild Hall.",
@@ -1770,7 +1770,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Here, let me introduce you to the staff here. Inil and Kendra.",
@@ -1839,7 +1839,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"I am here to meet Sir Akinwunmi, the Guild Master. He's been sick and I am not sure if he is better now.",
@@ -1885,7 +1885,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Speaking of the devil!",
@@ -1931,7 +1931,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"You never met her yet [playerName]. Alexi is my twin, Alexus is our younger sister. She is a bit of a rebel... I do hope she didn't trouble people...",
@@ -1977,7 +1977,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Oh my... I am so sorry Sir Akinwunmi. I will properly lecture her later.",
@@ -2023,7 +2023,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Clearly NOT anymore! My objective will be to hunt her down later! (She shook her head, her frustrated expression undercut by a faint, reluctant concern)",
@@ -2080,7 +2080,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"We will drop by Glimmerdell on our way back. Alexus might be there.",
@@ -2120,7 +2120,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Here we are. This is Glimmerdell, the mining town. It is between Mirror's Repose and Sandy Bay. Let's go to the Guild Hall and ask around for Alexus. I should introduce you to the staff here as well.",
@@ -2143,7 +2143,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"This is Ron. I think Hana isn't around today.",
@@ -2212,7 +2212,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"(A bit indecisive...) No, not really. I just wanted to check if Alexus is around.",
@@ -2321,7 +2321,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"I am sorry [player name]. I must have worried you with my behavior. After knowing Alexus is on her route back to Mirror's Repose, I am no longer worried about her. After all, she is more than capable of taking care of herself.",
@@ -2344,7 +2344,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Very perceptive of you, [player name]. It's true that meeting Norman is unsettling for me. You might have noticed it but he isn't running things the way a Guild Master should. Glimmerdell is making a fortune from mining and he is using his authority as Guild Master to prioritize quests related to mining, neglecting other important aspects like town security and welfare of the adventurers. He cares more about profit than people.",
@@ -2367,7 +2367,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"The townspeople support him, unfortunately. He has somehow convinced them—blinding them with the wealth from the mines—to the point where they prioritize defending the mines over their own lives. As a guild master, he should get his priorities straight and put the safety and well-being of the people first. And yet he is doing it the other way around.",
@@ -2408,7 +2408,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Home sweet home. Thank you for accompanying me today, [player name]. It means a lot to me.",
@@ -2432,7 +2432,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Now then, if I know my sister...",
@@ -2476,7 +2476,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Let me properly introduce you to my sister, Alexus.",
@@ -2524,7 +2524,7 @@ export const gameScenes = [
 
 		npcName: 'Alexi',
 
-		npcPortrait: '/Images/NPC/npc-alexi.PNG',
+		npcPortrait: '/Images/NPC/npc-alexi.png',
 
 		npcText:
 			"Hey, knock it off! (And she literally knocked Alexus head with her knuckle). Is that how you greet someone who ran around all day with Alexa to look for you?",
@@ -2572,7 +2572,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Goodness, Alexi, Alexus, both of you! Sorry about this [player name]. You don't have to apologize for anything.",
@@ -2596,7 +2596,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Thank you for today, [player name]. I hope we can hang out together again sometime.",
@@ -2802,7 +2802,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Sorry to suddenly ask you to come. I have a request for you which I can't post as a guild quest.",
@@ -2825,7 +2825,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"I am sure you still remember about the issue with Glimmerdell... This is a request from Smith. He is the current mayor of Glimmerdell. He wants me to look for someone trustworthy to help him with some investigation work.",
@@ -2848,7 +2848,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"Yes. Honestly, as Guild Master, I can't make this request officially. It's against guild rules to interfere in another town's politics, so the decision is yours.",
@@ -2881,7 +2881,7 @@ export const gameScenes = [
 
 		npcName: 'Alexa',
 
-		npcPortrait: '/Images/NPC/npc-alexa.PNG',
+		npcPortrait: '/Images/NPC/npc-alexa.png',
 
 		npcText:
 			"In that case, please go meet Smith in Glimmerdell Town Hall before you make your decision. I will respect whatever final choice you make.",

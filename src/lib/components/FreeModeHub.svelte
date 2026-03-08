@@ -1416,7 +1416,7 @@ $: if (showElementBadge) {
 											snippet:
 												'Greetings. I am Esther, an acolyte in service to the Twelve Orders of The Night, dedicated to the light of Luna.',
 											conversationScene: null,
-											npcPortrait: '/Images/NPC/npc-esther.PNG'
+											npcPortrait: '/Images/NPC/npc-esther.png'
 										});
 										gameState.update((s) => ({ ...(s || {}), locationNPCs: currentNpcs }));
 									}
@@ -2786,7 +2786,7 @@ $: if (showElementBadge) {
 										snippet:
 											"Hey... buddy. Pal. We're pals, right? Pals buy pals drinks. It's a... a rule...",
 										conversationScene: null,
-										npcPortrait: '/Images/NPC/npc-kane.PNG'
+										npcPortrait: '/Images/NPC/npc-kane.png'
 									});
 									gameState.update((s) => ({ ...(s || {}), locationNPCs: currentNpcs }));
 								}
@@ -2849,7 +2849,7 @@ $: if (showElementBadge) {
 												snippet:
 													"I am the town guards' Captain, York is the name. How can I help you?",
 												conversationScene: null,
-												npcPortrait: '/Images/NPC/npc-captain-york.PNG'
+												npcPortrait: '/Images/NPC/npc-york.png'
 											});
 											gameState.update((s) => ({ ...(s || {}), locationNPCs: currentNpcs }));
 										}
@@ -2894,7 +2894,7 @@ $: if (showElementBadge) {
 												snippet:
 													'Hello there! I am Matthew, just call me Matt. Everyone here call me that. No one really call me Matthew - in full I mean. But yeah, go ahead if you want to call me in full, as in like Matthew (and on he goes)...',
 												conversationScene: null,
-												npcPortrait: '/Images/NPC/npc-matt.PNG'
+												npcPortrait: '/Images/NPC/npc-matt.png'
 											});
 											gameState.update((s) => ({ ...(s || {}), locationNPCs: currentNpcs }));
 										}
@@ -4292,7 +4292,7 @@ $: if (showElementBadge) {
 															inHubConversationData = {
 																npcId: npc.id || npc.name,
 																name: npc.name,
-																npcPortrait: npc.npcPortrait || (npc.name === 'Chris' ? '/Images/NPC/npc-chris.PNG' : '/Images/NPC/npc-berg.PNG'),
+																npcPortrait: npc.npcPortrait || (npc.name === 'Chris' ? '/Images/NPC/npc-chris.png' : '/Images/NPC/npc-berg.png'),
 																snippet: npc.snippet || '',
 																// Attach sourceLocation so centralized handlers can disambiguate same-named NPCs
 																meta: { sourceLocation: $gameState.location || null },
@@ -5229,7 +5229,7 @@ $: if (showElementBadge) {
 					inHubConversationData = {
 						name: 'Xia',
 						snippet: 'Greetings — the guild keeps busy. Anything I can do for you?',
-						npcPortrait: '/Images/NPC/npc-xia.PNG',
+						npcPortrait: '/Images/NPC/npc-xia.png',
 						choices: [
 							{ id: 'check-available-quests', text: 'Check for available quests', trait: null },
 							{ id: 'submit-completed-quest', text: 'Submit completed quest', trait: null },

@@ -127,14 +127,14 @@ export const sceneManager = (() => {
 							name: 'Mogi',
 							snippet: 'Hi there! I am Mogi. How can I help you?',
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-mogi.PNG'
+							npcPortrait: '/Images/NPC/npc-mogi.png'
 						},
 						{
 							name: 'Jenny',
 							snippet:
 								'Jenny at your service! Coffe, tea or me? Just kidding, unfortunately we got none of those available here but the best brews and me',
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-jenny.PNG'
+							npcPortrait: '/Images/NPC/npc-jenny.png'
 						}
 					],
 					'guild-hall': [
@@ -142,25 +142,25 @@ export const sceneManager = (() => {
 								name: 'Xia',
 								snippet: XIA_SNIPPET,
 								conversationScene: null,
-								npcPortrait: '/Images/NPC/npc-xia.PNG'
+								npcPortrait: '/Images/NPC/npc-xia.png'
 							},
 						{
 							name: 'Chris',
 							snippet: CHRIS_SNIPPET,
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-chris.PNG'
+							npcPortrait: '/Images/NPC/npc-chris.png'
 						},
 						{
 							name: 'Alexa',
 							snippet: 'Greetings — the guild keeps busy. Anything I can do for you?',
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-alexa.PNG'
+							npcPortrait: '/Images/NPC/npc-alexa.png'
 						},
 						{
 							name: 'Alexi',
 							snippet: 'Need something?',
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-alexi.PNG'
+							npcPortrait: '/Images/NPC/npc-alexi.png'
 						}
 					],
 					// Locked / placeholder locations
@@ -170,14 +170,14 @@ export const sceneManager = (() => {
 							snippet:
 								"Welcome to The Love and Hammered! People often ask about the name. The 'Love' is because I opened this shop to celebrate my marriage!",
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-zerg.PNG'
+							npcPortrait: '/Images/NPC/npc-zerg.png'
 						},
 						{
 							name: 'Issac',
 							snippet:
 								"Welcome! How may I assist you? You asked why 'Hammered'... Sadly, ever since my mom died, my father has been drinking himself into a stupor every night.",
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-issac.PNG'
+							npcPortrait: '/Images/NPC/npc-issac.png'
 						}
 					],
 					'swill-n-swing': [
@@ -185,13 +185,13 @@ export const sceneManager = (() => {
 							name: 'Holly',
 							snippet: 'Welcome! What can I get you? Do you need the Swill or the Swing?',
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-holly.PNG'
+							npcPortrait: '/Images/NPC/npc-holly.png'
 						},
 						{
 							name: 'Maple',
 							snippet: 'Welcome! What do you need for today?',
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-maple.PNG'
+							npcPortrait: '/Images/NPC/npc-maple.png'
 						}
 					],
 					'familiars-folly': [
@@ -207,7 +207,7 @@ export const sceneManager = (() => {
 							snippet:
 								'I am just here to help out to pass time when I am not needed at the Guild Hall.',
 							conversationScene: null,
-							npcPortrait: '/Images/NPC/npc-alexi.PNG'
+							npcPortrait: '/Images/NPC/npc-alexi.png'
 						}
 					],
 					'the-hush-hustler': [
@@ -241,7 +241,7 @@ export const sceneManager = (() => {
 								snippet:
 									"Hey... buddy. Pal. We're pals, right? Pals buy pals drinks. It's a... a rule...",
 								conversationScene: null,
-								npcPortrait: '/Images/NPC/npc-kane.PNG'
+								npcPortrait: '/Images/NPC/npc-kane.png'
 							});
 						}
 					}
@@ -337,7 +337,7 @@ export const sceneManager = (() => {
 				const navTitle = `NPC:${npc.name.replace(/\s+/g, '-')}:${Date.now()}`;
 
 				// Default portrait fallback - caller may pass npc.npcPortrait
-				const portrait = npc.npcPortrait || '/Images/NPC/npc-berg.PNG';
+				const portrait = npc.npcPortrait || '/Images/NPC/npc-berg.png';
 
 				// Create choices. Use specialized conversations for certain NPCs (Zerg, Issac).
 				let choices;
