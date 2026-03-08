@@ -85,10 +85,12 @@ class SaveSlotsManager {
 				if (data && data.save_data) {
 					console.log('[SaveSlotsManager] Found cloud save data', data.save_data);
 
+					const cloudData = this._normalize(data.save_data);
+					const cloudHasData = !!cloudData.lastUsed || cloudData.slots.some(s => !!s.payload);
 					const localSlots = this._data.slots || [];
-					const isDefault = !this._data.lastUsed && localSlots.every(s => !s.payload);
-					if (isDefault) {
-						this._data = this._normalize(data.save_data);
+					const isLocalDefault = !this._data.lastUsed && localSlots.every(s => !s.payload);
+					if (isLocalDefault && cloudHasData) {
+						this._data = cloudData;
 						this._save(); // Persist to local
 						if (typeof window !== 'undefined') window.location.reload();
 					}
