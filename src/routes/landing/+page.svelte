@@ -67,18 +67,14 @@
   }
 
   let audio;
-  let audioUnlocked = false;
   $: audioEnabled = $audioSettings?.enabled ?? true;
   $: bgmMultiplier = ($audioSettings?.bgmVolume ?? 50) / 100;
-
-  // Only control play/pause after the user has interacted once (audioUnlocked).
-  // Before that, the browser blocks autoplay on HTTPS anyway.
-  $: if (audio && audioUnlocked) {
+  // React to mute/unmute and volume changes. play() here works after the
+  // first user interaction because the browser remembers user activation.
+  $: if (audio) {
     audio.volume = audioEnabled ? 1.0 * bgmMultiplier : 0;
     if (!audioEnabled && !audio.paused) audio.pause();
     if (audioEnabled && audio.paused) audio.play().catch(() => {});
-  } else if (audio) {
-    audio.volume = audioEnabled ? 1.0 * bgmMultiplier : 0;
   }
 
   onMount(async () => {
@@ -91,24 +87,28 @@
       user = session?.user ?? null;
     });
 
-    let unlock;
+    let onInteract;
     if (audio) {
       audio.volume = audioEnabled ? bgmMultiplier : 0;
 
-      // Try autoplay — succeeds on some browsers/contexts
-      audio.play().then(() => {
-        audioUnlocked = true;
-      }).catch(() => {
-        // Blocked — wait for first user interaction
-        unlock = () => {
-          document.removeEventListener('click', unlock);
-          document.removeEventListener('keydown', unlock);
-          if (!audioEnabled) { audioUnlocked = true; return; }
-          audio.play().then(() => { audioUnlocked = true; }).catch(() => {});
-        };
-        document.addEventListener('click', unlock);
-        document.addEventListener('keydown', unlock);
-      });
+      let started = false;
+      const tryStart = () => {
+        if (started || !audioEnabled) return;
+        audio.play().then(() => { started = true; }).catch(() => {});
+      };
+
+      tryStart(); // attempt autoplay; silently fails on HTTPS
+
+      // Keep retrying on every user interaction until audio actually starts
+      onInteract = () => {
+        tryStart();
+        if (started) {
+          document.removeEventListener('click', onInteract);
+          document.removeEventListener('keydown', onInteract);
+        }
+      };
+      document.addEventListener('click', onInteract);
+      document.addEventListener('keydown', onInteract);
     }
 
     return () => {
@@ -120,9 +120,9 @@
         audio.removeAttribute('src');
         audio.load();
       }
-      if (unlock) {
-        document.removeEventListener('click', unlock);
-        document.removeEventListener('keydown', unlock);
+      if (onInteract) {
+        document.removeEventListener('click', onInteract);
+        document.removeEventListener('keydown', onInteract);
       }
     };
   });
