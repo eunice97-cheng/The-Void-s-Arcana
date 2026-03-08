@@ -52,13 +52,21 @@ class SaveSlotsManager {
 		this._initialized = false;
 	}
 
+	/** Ensure the data object always has a valid slots array. */
+	_normalize(data) {
+		if (!data || typeof data !== 'object') {
+			return { version: this.schemaVersion, lastUsed: null, slots: defaultSlots() };
+		}
+		if (!Array.isArray(data.slots)) {
+			data.slots = defaultSlots();
+		}
+		return data;
+	}
+
 	_ensureInitialized() {
 		if (this._initialized) return;
-		this._data = this._load() || {
-			version: this.schemaVersion,
-			lastUsed: null,
-			slots: defaultSlots()
-		};
+		const loaded = this._load();
+		this._data = this._normalize(loaded || null);
 		this._initialized = true;
 		// Try to pull from cloud on init
 		this._pullFromCloud();
@@ -73,21 +81,15 @@ class SaveSlotsManager {
 					.select('save_data')
 					.eq('id', user.id)
 					.single();
-				
+
 				if (data && data.save_data) {
-					// Simple merge strategy: if cloud has data, use it if it's newer or we have nothing
-					// For now, let's just log that we found it. 
-					// A real implementation would ask the user "Cloud save found, load it?"
 					console.log('[SaveSlotsManager] Found cloud save data', data.save_data);
-					
-					// Auto-load if local is empty? Or just overwrite?
-					// Let's be safe: only overwrite if local is empty or user explicitly asks.
-					// For this "Phase 1", we'll just overwrite if local is default/empty.
-					const isDefault = !this._data.lastUsed && this._data.slots.every(s => !s.payload);
+
+					const localSlots = this._data.slots || [];
+					const isDefault = !this._data.lastUsed && localSlots.every(s => !s.payload);
 					if (isDefault) {
-						this._data = data.save_data;
+						this._data = this._normalize(data.save_data);
 						this._save(); // Persist to local
-						// Force reload of UI?
 						if (typeof window !== 'undefined') window.location.reload();
 					}
 				}
@@ -171,9 +173,7 @@ class SaveSlotsManager {
 			if (error) throw error;
 			if (!data || !data.save_data) throw new Error('No cloud save found');
 
-			this._data = data.save_data;
-			// Save to local storage directly to avoid triggering auto-sync loop if possible, 
-			// but _save is convenient. Let's just use localStorage directly to avoid the loop.
+			this._data = this._normalize(data.save_data);
 			localStorage.setItem(this.key, JSON.stringify(this._data));
 			
 			return { success: true };
@@ -845,7 +845,7 @@ class SaveSlotsManager {
 
 	hasAnySaved() {
 		this._ensureInitialized();
-		return this._data.slots.some(/** @param {any} s */ (s) => !!s.payload);
+		return (this._data.slots || []).some(/** @param {any} s */ (s) => !!s.payload);
 	}
 
 	/**
@@ -903,7 +903,8 @@ class SaveSlotsManager {
 		}
 
 		// Otherwise, find the first empty unlocked slot
-		const emptySlot = this._data.slots.find(/** @param {any} s */ (s) => !s.locked && !s.payload);
+		const slots = this._data.slots || [];
+		const emptySlot = slots.find(/** @param {any} s */ (s) => !s.locked && !s.payload);
 		if (emptySlot) {
 			console.log('[saveSlotsManager] Found empty slot:', emptySlot.id);
 			const result = this.saveToSlot(emptySlot.id);
@@ -916,7 +917,7 @@ class SaveSlotsManager {
 		}
 
 		// No empty slots - save to the last used unlocked slot or slot 1
-		const fallbackSlot = this._data.slots.find(/** @param {any} s */ (s) => !s.locked);
+		const fallbackSlot = slots.find(/** @param {any} s */ (s) => !s.locked);
 		if (fallbackSlot) {
 			console.log('[saveSlotsManager] Using fallback slot:', fallbackSlot.id);
 			const result = this.saveToSlot(fallbackSlot.id);
